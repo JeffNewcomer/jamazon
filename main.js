@@ -121,3 +121,62 @@ function createCard(card) {
 
   return $card
 }
+
+function createGridAndHeading(grid) {
+  var $grid = document.createElement('div')
+  $grid.classList.add('container')
+
+  var $header = document.createElement('h1')
+  $grid.appendChild($header)
+  $header.textContent = 'Jamazon'
+
+  var $row1 = document.createElement('div')
+  $row1.classList.add('row')
+  $grid.appendChild($row1)
+
+  var $row1Col1 = document.createElement('div')
+  $row1Col1.classList.add('col')
+  $row1.appendChild($row1Col1)
+  $row1Col1.textContent = '1'
+
+  var $row1Col2 = document.createElement('div')
+  $row1Col2.classList.add('col')
+  $row1.appendChild($row1Col2)
+  $row1Col2.textContent = '2'
+
+  var $row1Col3 = document.createElement('div')
+  $row1Col3.classList.add('col')
+  $row1.appendChild($row1Col3)
+  $row1Col3.textContent = '3'
+
+  var $row1Col4 = document.createElement('div')
+  $row1Col4.classList.add('col')
+  $row1.appendChild($row1Col4)
+  $row1Col4.textContent = '4'
+
+  var $row2 = document.createElement('div')
+  $row2.classList.add('row')
+  $grid.appendChild($row2)
+
+  var $row2Col1 = document.createElement('div')
+  $row2Col1.classList.add('col')
+  $row2.appendChild($row2Col1)
+  $row2Col1.textContent = '5'
+
+  var $row2Col2 = document.createElement('div')
+  $row2Col2.classList.add('col')
+  $row2.appendChild($row2Col2)
+  $row2Col2.textContent = '6'
+
+  var $row2Col3 = document.createElement('div')
+  $row2Col3.classList.add('col')
+  $row2.appendChild($row2Col3)
+  $row2Col3.textContent = '7'
+
+  var $row2Col4 = document.createElement('div')
+  $row2Col4.classList.add('col')
+  $row2.appendChild($row2Col4)
+  $row2Col4.textContent = '8'
+
+  return $grid
+}
