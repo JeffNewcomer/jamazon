@@ -91,92 +91,64 @@ var app = {
   }
 }
 
-function createCard(card) {
+function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
 
   var $image = document.createElement('img')
   $card.appendChild($image)
   $image.classList.add('card-img-top')
-  $image.setAttribute('src', app.catalog.items[0].imageUrl)
+  $image.setAttribute('src', item.imageUrl)
+  $image.classList.add('images')
 
   var $cardBody = document.createElement('div')
   $card.appendChild($cardBody)
   $cardBody.classList.add('card-body')
+  $card.style.height = '500px'
 
   var $brand = document.createElement('h5')
   $cardBody.appendChild($brand)
   $brand.classList.add('card-title')
-  $brand.textContent = app.catalog.items[0].brand
+  $brand.textContent = item.brand
 
   var $name = document.createElement('h5')
   $cardBody.appendChild($name)
   $name.classList.add('card-title')
-  $name.textContent = app.catalog.items[0].name
+  $name.textContent = item.name
 
   var $price = document.createElement('h5')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = app.catalog.items[0].price
+  $price.textContent = item.price
 
   return $card
 }
 
-function createGridAndHeading(grid) {
+function createGridAndHeading(allItems) {
   var $grid = document.createElement('div')
   $grid.classList.add('container')
 
   var $header = document.createElement('h1')
   $grid.appendChild($header)
   $header.textContent = 'Jamazon'
+  $header.classList.add('jamazonText')
 
   var $row1 = document.createElement('div')
   $row1.classList.add('row')
   $grid.appendChild($row1)
 
-  var $row1Col1 = document.createElement('div')
-  $row1Col1.classList.add('col')
-  $row1.appendChild($row1Col1)
-  $row1Col1.textContent = '1'
-
-  var $row1Col2 = document.createElement('div')
-  $row1Col2.classList.add('col')
-  $row1.appendChild($row1Col2)
-  $row1Col2.textContent = '2'
-
-  var $row1Col3 = document.createElement('div')
-  $row1Col3.classList.add('col')
-  $row1.appendChild($row1Col3)
-  $row1Col3.textContent = '3'
-
-  var $row1Col4 = document.createElement('div')
-  $row1Col4.classList.add('col')
-  $row1.appendChild($row1Col4)
-  $row1Col4.textContent = '4'
-
-  var $row2 = document.createElement('div')
-  $row2.classList.add('row')
-  $grid.appendChild($row2)
-
-  var $row2Col1 = document.createElement('div')
-  $row2Col1.classList.add('col')
-  $row2.appendChild($row2Col1)
-  $row2Col1.textContent = '5'
-
-  var $row2Col2 = document.createElement('div')
-  $row2Col2.classList.add('col')
-  $row2.appendChild($row2Col2)
-  $row2Col2.textContent = '6'
-
-  var $row2Col3 = document.createElement('div')
-  $row2Col3.classList.add('col')
-  $row2.appendChild($row2Col3)
-  $row2Col3.textContent = '7'
-
-  var $row2Col4 = document.createElement('div')
-  $row2Col4.classList.add('col')
-  $row2.appendChild($row2Col4)
-  $row2Col4.textContent = '8'
-
+  for (var i = 0; i < allItems.length; i++) {
+    var $cardDiv = document.createElement('div')
+    $cardDiv.classList.add('col-md-3')
+    $row1.appendChild($cardDiv)
+    var $newCard = createCard(app.catalog.items[i])
+    $cardDiv.appendChild($newCard)
+  }
   return $grid
 }
+
+// loop through allItems
+// create a div
+// render the card and pass it an item
+// append the div to the grid
+// append the card into the div
