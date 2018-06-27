@@ -104,7 +104,6 @@ function createCard(item) {
   var $cardBody = document.createElement('div')
   $card.appendChild($cardBody)
   $cardBody.classList.add('card-body')
-  $card.style.height = '500px'
 
   var $brand = document.createElement('h5')
   $cardBody.appendChild($brand)
@@ -155,3 +154,57 @@ function renderGridAndHeader() {
   $catalog.appendChild(i)
 }
 renderGridAndHeader()
+
+function renderFullDetailsCard(item) {
+  var $largeCard = document.createElement('div')
+  $largeCard.classList.add('card')
+
+  var $largeImage = document.createElement('img')
+  $largeCard.appendChild($largeImage)
+  $largeImage.classList.add('card-img-top')
+  $largeImage.setAttribute('src', item.imageUrl)
+  $largeImage.classList.add('images')
+
+  var $largeCardBody = document.createElement('div')
+  $largeCard.appendChild($largeCardBody)
+  $largeCardBody.classList.add('card-body')
+
+  var $largeCardBrand = document.createElement('h5')
+  $largeCardBody.appendChild($largeCardBrand)
+  $largeCardBrand.classList.add('card-title')
+  $largeCardBrand.textContent = item.brand
+
+  var $largeCardName = document.createElement('h5')
+  $largeCardBody.appendChild($largeCardName)
+  $largeCardName.classList.add('card-title')
+  $largeCardName.textContent = item.name
+
+  var $largeCardPrice = document.createElement('h5')
+  $largeCardBody.appendChild($largeCardPrice)
+  $largeCardPrice.classList.add('card-title')
+  $largeCardPrice.textContent = item.price
+
+  var $largeCardDescription = document.createElement('h3')
+  $largeCardBody.appendChild($largeCardDescription)
+  $largeCardDescription.classList.add('card-text')
+  $largeCardDescription.textContent = item.description
+
+  var $largeCardDetails = document.createElement('p')
+  $largeCardBody.appendChild($largeCardDetails)
+  $largeCardDetails.classList.add('card-text')
+  $largeCardDetails.textContent = item.details
+
+  var $largeCardOrigin = document.createElement('h3')
+  $largeCardBody.appendChild($largeCardOrigin)
+  $largeCardOrigin.classList.add('card-text')
+  $largeCardOrigin.textContent = item.origin
+
+  var $largeCardItemId = document.createElement('p')
+  $largeCardBody.appendChild($largeCardItemId)
+  $largeCardItemId.classList.add('card-text')
+  $largeCardItemId.textContent = item.itemId
+
+  return $largeCard
+}
+
+console.log(renderFullDetailsCard(app.catalog.items[0]))
