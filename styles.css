@@ -1,0 +1,17 @@
+body {
+  background: lightgray;
+  color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
+.jamazonText {
+  font-size: 50px;
+  text-align: center;
+  padding: 50px;
+}
+
+.images {
+  max-width: 250px;
+  margin: auto;
+  padding: 15px;
+}
