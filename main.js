@@ -137,18 +137,20 @@ function createGridAndHeading(allItems) {
   $row1.classList.add('row')
   $grid.appendChild($row1)
 
+  // loop through allItems, create a div, render the card and pass it an item, append
+  // the div to the grid. append the card into the div
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
     $cardDiv.classList.add('col-md-3')
     $row1.appendChild($cardDiv)
-    var $newCard = createCard(app.catalog.items[i])
+    var $newCard = createCard(allItems[i])
     $cardDiv.appendChild($newCard)
   }
   return $grid
 }
-
-// loop through allItems
-// create a div
-// render the card and pass it an item
-// append the div to the grid
-// append the card into the div
+// Define a function that renders the entire app state and inserts it into the view.
+function renderGridAndHeader() {
+  var i = createGridAndHeading(app.catalog.items)
+  document.body.appendChild(i)
+}
+renderGridAndHeader()
