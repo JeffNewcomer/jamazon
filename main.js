@@ -151,6 +151,7 @@ function createGridAndHeading(allItems) {
 // Define a function that renders the entire app state and inserts it into the view.
 function renderGridAndHeader() {
   var i = createGridAndHeading(app.catalog.items)
-  document.body.appendChild(i)
+  var $catalog = document.querySelector("div[data-view='catalog']")
+  $catalog.appendChild(i)
 }
 renderGridAndHeader()
