@@ -206,5 +206,11 @@ function renderFullDetailsCard(item) {
 
   return $largeCard
 }
+// console.log(renderFullDetailsCard(app.catalog.items[0]))
 
-console.log(renderFullDetailsCard(app.catalog.items[0]))
+function createItemObject(itemId) {
+  var itemObject = app.catalog.items[itemId - 1]
+  return itemObject
+}
+// var io = createItemObject(2)
+// console.log(io)
