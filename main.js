@@ -159,6 +159,10 @@ function renderFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
   $largeCard.classList.add('card')
 
+  // add attribute to root element of the card
+  var a = document.createAttribute('data-item-id')
+  $largeCard.setAttributeNode(a)
+
   var $largeImage = document.createElement('img')
   $largeCard.appendChild($largeImage)
   $largeImage.classList.add('card-img-top')
@@ -206,7 +210,7 @@ function renderFullDetailsCard(item) {
 
   return $largeCard
 }
-// console.log(renderFullDetailsCard(app.catalog.items[0]))
+console.log(renderFullDetailsCard(app.catalog.items[1]))
 
 function createItemObject(itemId) {
   var itemObject = app.catalog.items[itemId - 1]
