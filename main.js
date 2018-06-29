@@ -91,6 +91,7 @@ var app = {
   }
 }
 
+// function 1 - create small cards
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
@@ -128,6 +129,7 @@ function createCard(item) {
   return $card
 }
 
+// function 2 - create grids and  heading
 function createGridAndHeading(allItems) {
   var $grid = document.createElement('div')
   $grid.classList.add('container')
@@ -152,13 +154,24 @@ function createGridAndHeading(allItems) {
   }
   return $grid
 }
-// Define a function that renders the entire app state and inserts it into the view.
-function renderGridAndHeader() {
-  var i = createGridAndHeading(app.catalog.items)
-  var $catalog = document.querySelector("div[data-view='catalog']")
-  $catalog.appendChild(i)
+
+// Function 3 - Define a function that renders the entire app state and inserts it into the view.
+function renderAppState() {
+  if (app.view === 'catalog') {
+    var i = createGridAndHeading(app.catalog.items)
+    var $catalog = document.querySelector("div[data-view='catalog']")
+    $catalog.appendChild(i)
+  }
+  // if (app.view === 'details') {
+  //   var k = createGridAndHeading(app.details.item)  //item is null so it breaks?
+  //   var $details = document.querySelector("div[data-view='details']")
+  //   $details.appendChild(k)
+
+  // addHiddenClass('details')
+  // addHiddenClass('catalog')
+
 }
-renderGridAndHeader()
+renderAppState()
 
 // creates full details card and renderds a DOM tree
 function createFullDetailsCard(item) {
@@ -235,6 +248,7 @@ function displayLargeCard() {
   var itemObject = getItemObject(clickedCardItemId, app.catalog.items)
   app.details.item = itemObject
   console.log(itemObject)
+  // renderAppState()
 }
 
 // Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
@@ -243,10 +257,12 @@ function addHiddenClass(viewName) {
   if (viewName === 'catalog') {
     // add hidden class to details app view (div)
     $details.classList.add('hidden')
+    $catalog.classList.remove('hidden')
   }
   if (viewName === 'details') {
     // add hidden class to catalog app view (div)
     $catalog.classList.add('hidden')
+    $details.classList.remove('hidden')
   }
 }
 // addHiddenClass('details')
