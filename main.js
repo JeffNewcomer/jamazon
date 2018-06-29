@@ -212,10 +212,20 @@ function createFullDetailsCard(item) {
 
   return $largeCard
 }
-console.log(createFullDetailsCard(app.catalog.items[0]))
 
-// add an event listener to the catalog view on the page
+// Define a function that takes an itemId and a list of catalog items and
+// returns the item Object with the matching itemId.
+function getItemObject(clickedCardItemId, catalogItems) {
+  for (var i = 0; i < catalogItems.length; i++) {
+    if (parseInt(clickedCardItemId, 10) === catalogItems[i].itemId) {
+      return catalogItems[i]
+    }
+  }
+}
+
+// event listener - returns the object for the item that was clicked
 var $catalog = document.querySelector("div[data-view='catalog']")
+var $details = document.querySelector("div[data-view='details']")
 $catalog.addEventListener('click', displayLargeCard)
 
 function displayLargeCard() {
@@ -227,13 +237,37 @@ function displayLargeCard() {
   console.log(itemObject)
 }
 
-// Define a function that takes an itemId and a list of catalog items and
-// returns the item Object with the matching itemId.
-function getItemObject(clickedCardItemId, catalogItems) {
-  for (var i = 0; i < catalogItems.length; i++) {
-    if (parseInt(clickedCardItemId, 10) === catalogItems[i].itemId) {
-      return catalogItems[i]
-    }
+// Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
+// data-view containers (see divs in html) that don't match that view.
+function addHiddenClass(viewName) {
+  if (viewName === 'catalog') {
+    // add hidden class to details app view (div)
+    $details.classList.add('hidden')
+  }
+  if (viewName === 'details') {
+    // add hidden class to catalog app view (div)
+    $catalog.classList.add('hidden')
   }
 }
-// console.log(createItemObject(1))
+// addHiddenClass('details')
+// addHiddenClass('catalog')
+// do I need to also need to remove 'hidden' from other container(s) when running this function a 2nd time?
+
+// Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
+// data-view containers (see divs in html) that don't match that view.
+// function addHiddenClass(viewName) {
+//  for (var i = 0; i < app.catalog.items.length; i++) {
+// for (var i = 0; i < app.view.length; i++) {
+// if (app.view === 'catalog') {
+// if (viewName === 'catalog') {
+// add hidden class to details app view (div)
+// $details.classList.add('hidden')
+// }
+//  if (app.view === 'details') {
+//  if (viewName === 'details') {
+// add hidden class to catalog app view (div)
+//  $catalog.classList.add('hidden')
+// }
+// }
+// }
+// addHiddenClass('details')
