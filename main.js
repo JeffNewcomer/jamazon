@@ -91,6 +91,10 @@ var app = {
   }
 }
 
+// added these 2 lines of code below so that I can work on the large card. remove later.
+// app.view = 'details'
+// app.details.item = app.catalog.items[1]
+
 // function 1 - create small cards
 function createCard(item) {
   var $card = document.createElement('div')
@@ -156,77 +160,86 @@ function createGridAndHeading(allItems) {
 }
 
 // Function 3 - Define a function that renders the entire app state and inserts it into the view.
+var $catalog = document.querySelector("div[data-view='catalog']")
+var $details = document.querySelector("div[data-view='details']")
+
 function renderAppState() {
   if (app.view === 'catalog') {
     var i = createGridAndHeading(app.catalog.items)
-    var $catalog = document.querySelector("div[data-view='catalog']")
     $catalog.appendChild(i)
+    addHiddenClass('details')
   }
-  // if (app.view === 'details') {
-  //   var k = createGridAndHeading(app.details.item)  //item is null so it breaks?
-  //   var $details = document.querySelector("div[data-view='details']")
-  //   $details.appendChild(k)
-
-  // addHiddenClass('details')
-  // addHiddenClass('catalog')
-
+  if (app.view === 'details') {
+    var k = createFullDetailsCard(app.details.item)
+    $details.appendChild(k)
+    addHiddenClass('catalog')
+  }
 }
 renderAppState()
 
-// creates full details card and renderds a DOM tree
+// function 4 - creates full details card and renderds a DOM tree
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
-  $largeCard.classList.add('card')
+
+  var $largeCardImageContainer = document.createElement('div')
+  $largeCardImageContainer.classList.add('large-card-image-container')
+  $largeCard.appendChild($largeCardImageContainer)
 
   var $largeImage = document.createElement('img')
-  $largeCard.appendChild($largeImage)
-  $largeImage.classList.add('card-img-top')
+  $largeCardImageContainer.appendChild($largeImage)
+  // $largeImage.classList.add('card-img-top')
   $largeImage.setAttribute('src', item.imageUrl)
-  $largeImage.classList.add('images')
+  // $largeImage.classList.add('images')
+  $largeImage.classList.add('large-card-image')
 
   var $largeCardBody = document.createElement('div')
   $largeCard.appendChild($largeCardBody)
-  $largeCardBody.classList.add('card-body')
+  // $largeCardBody.classList.add('card-body')
+  $largeCardBody.classList.add('lrg-card-div')
+
+  var $largeCardTextContainer = document.createElement('div')
+  $largeCardBody.appendChild($largeCardTextContainer)
+  $largeCardTextContainer.classList.add('lrg-card-text-container')
 
   var $largeCardBrand = document.createElement('h5')
-  $largeCardBody.appendChild($largeCardBrand)
+  $largeCardTextContainer.appendChild($largeCardBrand)
   $largeCardBrand.classList.add('card-title')
   $largeCardBrand.textContent = item.brand
 
   var $largeCardName = document.createElement('h5')
-  $largeCardBody.appendChild($largeCardName)
+  $largeCardTextContainer.appendChild($largeCardName)
   $largeCardName.classList.add('card-title')
   $largeCardName.textContent = item.name
 
   var $largeCardPrice = document.createElement('h5')
-  $largeCardBody.appendChild($largeCardPrice)
+  $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
   $largeCardPrice.textContent = item.price
 
   var $largeCardDescription = document.createElement('h3')
-  $largeCardBody.appendChild($largeCardDescription)
+  $largeCardTextContainer.appendChild($largeCardDescription)
   $largeCardDescription.classList.add('card-text')
   $largeCardDescription.textContent = item.description
 
   var $largeCardDetails = document.createElement('p')
-  $largeCardBody.appendChild($largeCardDetails)
+  $largeCardTextContainer.appendChild($largeCardDetails)
   $largeCardDetails.classList.add('card-text')
   $largeCardDetails.textContent = item.details
 
   var $largeCardOrigin = document.createElement('h3')
-  $largeCardBody.appendChild($largeCardOrigin)
+  $largeCardTextContainer.appendChild($largeCardOrigin)
   $largeCardOrigin.classList.add('card-text')
   $largeCardOrigin.textContent = item.origin
 
   var $largeCardItemId = document.createElement('p')
-  $largeCardBody.appendChild($largeCardItemId)
+  $largeCardTextContainer.appendChild($largeCardItemId)
   $largeCardItemId.classList.add('card-text')
   $largeCardItemId.textContent = item.itemId
 
   return $largeCard
 }
 
-// Define a function that takes an itemId and a list of catalog items and
+// function 5 - Define a function that takes an itemId and a list of catalog items and
 // returns the item Object with the matching itemId.
 function getItemObject(clickedCardItemId, catalogItems) {
   for (var i = 0; i < catalogItems.length; i++) {
@@ -236,9 +249,8 @@ function getItemObject(clickedCardItemId, catalogItems) {
   }
 }
 
-// event listener - returns the object for the item that was clicked
-var $catalog = document.querySelector("div[data-view='catalog']")
-var $details = document.querySelector("div[data-view='details']")
+// function 6 - event listener - returns the object for the item that was clicked
+
 $catalog.addEventListener('click', displayLargeCard)
 
 function displayLargeCard() {
@@ -248,18 +260,18 @@ function displayLargeCard() {
   var itemObject = getItemObject(clickedCardItemId, app.catalog.items)
   app.details.item = itemObject
   console.log(itemObject)
-  // renderAppState()
+  renderAppState()
 }
 
-// Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
+// funtion 7 - Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
 // data-view containers (see divs in html) that don't match that view.
 function addHiddenClass(viewName) {
-  if (viewName === 'catalog') {
+  if (viewName === 'details') {
     // add hidden class to details app view (div)
     $details.classList.add('hidden')
     $catalog.classList.remove('hidden')
   }
-  if (viewName === 'details') {
+  if (viewName === 'catalog') {
     // add hidden class to catalog app view (div)
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
