@@ -219,13 +219,12 @@ var $catalog = document.querySelector("div[data-view='catalog']")
 $catalog.addEventListener('click', displayLargeCard)
 
 function displayLargeCard() {
-  event.target.closest('.card')
   var clickedCard = event.target.closest('.card')
   var clickedCardItemId = clickedCard.getAttribute('data-item-id')
   app.view = 'details'
-  app.details.item = clickedCardItemId
-  console.log(clickedCardItemId)
-  return clickedCardItemId
+  var itemObject = getItemObject(clickedCardItemId, app.catalog.items)
+  app.details.item = itemObject
+  console.log(itemObject)
 }
 
 // Define a function that takes an itemId and a list of catalog items and
