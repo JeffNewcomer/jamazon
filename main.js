@@ -95,6 +95,11 @@ function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
 
+  // add attribute to root element of the card
+  var a = document.createAttribute('data-item-id')
+  $card.setAttributeNode(a)
+  $card.setAttribute('data-item-id', item.itemId)
+
   var $image = document.createElement('img')
   $card.appendChild($image)
   $image.classList.add('card-img-top')
@@ -155,13 +160,10 @@ function renderGridAndHeader() {
 }
 renderGridAndHeader()
 
-function renderFullDetailsCard(item) {
+// creates full details card and renderds a DOM tree
+function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
   $largeCard.classList.add('card')
-
-  // add attribute to root element of the card
-  var a = document.createAttribute('data-item-id')
-  $largeCard.setAttributeNode(a)
 
   var $largeImage = document.createElement('img')
   $largeCard.appendChild($largeImage)
@@ -210,11 +212,29 @@ function renderFullDetailsCard(item) {
 
   return $largeCard
 }
-console.log(renderFullDetailsCard(app.catalog.items[1]))
+console.log(createFullDetailsCard(app.catalog.items[0]))
 
-function createItemObject(itemId) {
-  var itemObject = app.catalog.items[itemId - 1]
-  return itemObject
+// add an event listener to the catalog view on the page
+var $catalog = document.querySelector("div[data-view='catalog']")
+$catalog.addEventListener('click', displayLargeCard)
+
+function displayLargeCard() {
+  event.target.closest('.card')
+  var clickedCard = event.target.closest('.card')
+  var clickedCardItemId = clickedCard.getAttribute('data-item-id')
+  app.view = 'details'
+  app.details.item = clickedCardItemId
+  console.log(clickedCardItemId)
+  return clickedCardItemId
 }
-// var io = createItemObject(2)
-// console.log(io)
+
+// Define a function that takes an itemId and a list of catalog items and
+// returns the item Object with the matching itemId.
+function getItemObject(clickedCardItemId, catalogItems) {
+  for (var i = 0; i < catalogItems.length; i++) {
+    if (parseInt(clickedCardItemId, 10) === catalogItems[i].itemId) {
+      return catalogItems[i]
+    }
+  }
+}
+// console.log(createItemObject(1))
