@@ -245,6 +245,13 @@ function createFullDetailsCard(item) {
   // Add a 'click' event listener to the details view on the page.
   // Determine if the Add to Cart button was clicked and add the app.details.item to the app.cart.
   $addToCartButton.addEventListener('click', renderCart)
+  // if clicked, push the app.details.item to app.cart
+  function renderCart() {
+    console.log('someone clicked the cart button')
+    app.cart.item.push(app.details.item)
+    app.view = 'cart'
+    renderAppState()
+  }
 
   return $largeCard
 }
@@ -293,8 +300,4 @@ function cartCount(cart) {
   var $cartCount = document.createElement('div')
   $cartCount.textContent = 'Cart (' + cart.item.length + ')'
   return $cartCount
-}
-
-function renderCart() {
-
 }
