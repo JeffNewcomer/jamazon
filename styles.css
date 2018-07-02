@@ -36,8 +36,9 @@ body {
 
 .lrg-card-div {
   background-color: white;
-  height: 420px;
+  height: 450px;
   margin-top: 50px;
+  width: 1120px;
 }
 
 .large-card-image-container {
@@ -55,4 +56,13 @@ body {
 .lrg-card-text-container {
   padding: 20px;
   width: 1000px;
+}
+
+.btn {
+  margin-left: 580px;
+}
+
+.cart-container {
+  text-align: right;
+  margin-right: 250px;
 }
