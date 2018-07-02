@@ -91,18 +91,12 @@ var app = {
   }
 }
 
-// added these 2 lines of code below so that I can work on the large card. remove later.
-// app.view = 'details'
-// app.details.item = app.catalog.items[1]
-
 // function 1 - create small cards
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
 
   // add attribute to root element of the card
-  var a = document.createAttribute('data-item-id')
-  $card.setAttributeNode(a)
   $card.setAttribute('data-item-id', item.itemId)
 
   var $image = document.createElement('img')
@@ -147,7 +141,7 @@ function createGridAndHeading(allItems) {
   $row1.classList.add('row')
   $grid.appendChild($row1)
 
-  // loop through allItems, create a div, render the card and pass it an item, append
+  // loops through allItems, creates a div, render the card and pass it an item, append
   // the div to the grid. append the card into the div
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
@@ -187,14 +181,11 @@ function createFullDetailsCard(item) {
 
   var $largeImage = document.createElement('img')
   $largeCardImageContainer.appendChild($largeImage)
-  // $largeImage.classList.add('card-img-top')
   $largeImage.setAttribute('src', item.imageUrl)
-  // $largeImage.classList.add('images')
   $largeImage.classList.add('large-card-image')
 
   var $largeCardBody = document.createElement('div')
   $largeCard.appendChild($largeCardBody)
-  // $largeCardBody.classList.add('card-body')
   $largeCardBody.classList.add('lrg-card-div')
 
   var $largeCardTextContainer = document.createElement('div')
@@ -250,7 +241,6 @@ function getItemObject(clickedCardItemId, catalogItems) {
 }
 
 // function 6 - event listener - returns the object for the item that was clicked
-
 $catalog.addEventListener('click', displayLargeCard)
 
 function displayLargeCard() {
@@ -259,43 +249,20 @@ function displayLargeCard() {
   app.view = 'details'
   var itemObject = getItemObject(clickedCardItemId, app.catalog.items)
   app.details.item = itemObject
-  console.log(itemObject)
   renderAppState()
 }
 
-// funtion 7 - Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
-// data-view containers (see divs in html) that don't match that view.
+// function 7 - Define a function that takes a view name ('catalog' or 'details')
+// and adds a 'hidden' class to all data-view containers (see divs in html) that don't match that view.
 function addHiddenClass(viewName) {
   if (viewName === 'details') {
-    // add hidden class to details app view (div)
+    // adds hidden class to details app view (div)
     $details.classList.add('hidden')
     $catalog.classList.remove('hidden')
   }
   if (viewName === 'catalog') {
-    // add hidden class to catalog app view (div)
+    // adds hidden class to catalog app view (div)
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
   }
 }
-// addHiddenClass('details')
-// addHiddenClass('catalog')
-// do I need to also need to remove 'hidden' from other container(s) when running this function a 2nd time?
-
-// Define a function that takes a view name ('catalog' or 'details'?) and adds a 'hidden' class to all
-// data-view containers (see divs in html) that don't match that view.
-// function addHiddenClass(viewName) {
-//  for (var i = 0; i < app.catalog.items.length; i++) {
-// for (var i = 0; i < app.view.length; i++) {
-// if (app.view === 'catalog') {
-// if (viewName === 'catalog') {
-// add hidden class to details app view (div)
-// $details.classList.add('hidden')
-// }
-//  if (app.view === 'details') {
-//  if (viewName === 'details') {
-// add hidden class to catalog app view (div)
-//  $catalog.classList.add('hidden')
-// }
-// }
-// }
-// addHiddenClass('details')
