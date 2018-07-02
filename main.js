@@ -91,9 +91,13 @@ var app = {
   }
 }
 
+// function 1 - create small cards
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
+
+  // add attribute to root element of the card
+  $card.setAttribute('data-item-id', item.itemId)
 
   var $image = document.createElement('img')
   $card.appendChild($image)
@@ -104,7 +108,6 @@ function createCard(item) {
   var $cardBody = document.createElement('div')
   $card.appendChild($cardBody)
   $cardBody.classList.add('card-body')
-  $card.style.height = '500px'
 
   var $brand = document.createElement('h5')
   $cardBody.appendChild($brand)
@@ -124,6 +127,7 @@ function createCard(item) {
   return $card
 }
 
+// function 2 - create grids and  heading
 function createGridAndHeading(allItems) {
   var $grid = document.createElement('div')
   $grid.classList.add('container')
@@ -137,7 +141,7 @@ function createGridAndHeading(allItems) {
   $row1.classList.add('row')
   $grid.appendChild($row1)
 
-  // loop through allItems, create a div, render the card and pass it an item, append
+  // loops through allItems, creates a div, render the card and pass it an item, append
   // the div to the grid. append the card into the div
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
@@ -148,10 +152,117 @@ function createGridAndHeading(allItems) {
   }
   return $grid
 }
-// Define a function that renders the entire app state and inserts it into the view.
-function renderGridAndHeader() {
-  var i = createGridAndHeading(app.catalog.items)
-  var $catalog = document.querySelector("div[data-view='catalog']")
-  $catalog.appendChild(i)
+
+// Function 3 - Define a function that renders the entire app state and inserts it into the view.
+var $catalog = document.querySelector("div[data-view='catalog']")
+var $details = document.querySelector("div[data-view='details']")
+
+function renderAppState() {
+  if (app.view === 'catalog') {
+    var i = createGridAndHeading(app.catalog.items)
+    $catalog.appendChild(i)
+    addHiddenClass('details')
+  }
+  if (app.view === 'details') {
+    var k = createFullDetailsCard(app.details.item)
+    $details.appendChild(k)
+    addHiddenClass('catalog')
+  }
 }
-renderGridAndHeader()
+renderAppState()
+
+// function 4 - creates full details card and renderds a DOM tree
+function createFullDetailsCard(item) {
+  var $largeCard = document.createElement('div')
+
+  var $largeCardImageContainer = document.createElement('div')
+  $largeCardImageContainer.classList.add('large-card-image-container')
+  $largeCard.appendChild($largeCardImageContainer)
+
+  var $largeImage = document.createElement('img')
+  $largeCardImageContainer.appendChild($largeImage)
+  $largeImage.setAttribute('src', item.imageUrl)
+  $largeImage.classList.add('large-card-image')
+
+  var $largeCardBody = document.createElement('div')
+  $largeCard.appendChild($largeCardBody)
+  $largeCardBody.classList.add('lrg-card-div')
+
+  var $largeCardTextContainer = document.createElement('div')
+  $largeCardBody.appendChild($largeCardTextContainer)
+  $largeCardTextContainer.classList.add('lrg-card-text-container')
+
+  var $largeCardBrand = document.createElement('h5')
+  $largeCardTextContainer.appendChild($largeCardBrand)
+  $largeCardBrand.classList.add('card-title')
+  $largeCardBrand.textContent = item.brand
+
+  var $largeCardName = document.createElement('h5')
+  $largeCardTextContainer.appendChild($largeCardName)
+  $largeCardName.classList.add('card-title')
+  $largeCardName.textContent = item.name
+
+  var $largeCardPrice = document.createElement('h5')
+  $largeCardTextContainer.appendChild($largeCardPrice)
+  $largeCardPrice.classList.add('card-title')
+  $largeCardPrice.textContent = item.price
+
+  var $largeCardDescription = document.createElement('h3')
+  $largeCardTextContainer.appendChild($largeCardDescription)
+  $largeCardDescription.classList.add('card-text')
+  $largeCardDescription.textContent = item.description
+
+  var $largeCardDetails = document.createElement('p')
+  $largeCardTextContainer.appendChild($largeCardDetails)
+  $largeCardDetails.classList.add('card-text')
+  $largeCardDetails.textContent = item.details
+
+  var $largeCardOrigin = document.createElement('h3')
+  $largeCardTextContainer.appendChild($largeCardOrigin)
+  $largeCardOrigin.classList.add('card-text')
+  $largeCardOrigin.textContent = item.origin
+
+  var $largeCardItemId = document.createElement('p')
+  $largeCardTextContainer.appendChild($largeCardItemId)
+  $largeCardItemId.classList.add('card-text')
+  $largeCardItemId.textContent = item.itemId
+
+  return $largeCard
+}
+
+// function 5 - Define a function that takes an itemId and a list of catalog items and
+// returns the item Object with the matching itemId.
+function getItemObject(clickedCardItemId, catalogItems) {
+  for (var i = 0; i < catalogItems.length; i++) {
+    if (parseInt(clickedCardItemId, 10) === catalogItems[i].itemId) {
+      return catalogItems[i]
+    }
+  }
+}
+
+// function 6 - event listener - returns the object for the item that was clicked
+$catalog.addEventListener('click', displayLargeCard)
+
+function displayLargeCard() {
+  var clickedCard = event.target.closest('.card')
+  var clickedCardItemId = clickedCard.getAttribute('data-item-id')
+  app.view = 'details'
+  var itemObject = getItemObject(clickedCardItemId, app.catalog.items)
+  app.details.item = itemObject
+  renderAppState()
+}
+
+// function 7 - Define a function that takes a view name ('catalog' or 'details')
+// and adds a 'hidden' class to all data-view containers (see divs in html) that don't match that view.
+function addHiddenClass(viewName) {
+  if (viewName === 'details') {
+    // adds hidden class to details app view (div)
+    $details.classList.add('hidden')
+    $catalog.classList.remove('hidden')
+  }
+  if (viewName === 'catalog') {
+    // adds hidden class to catalog app view (div)
+    $catalog.classList.add('hidden')
+    $details.classList.remove('hidden')
+  }
+}
