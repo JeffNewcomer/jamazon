@@ -159,6 +159,7 @@ function createGridAndHeading(allItems) {
 // Function 3 - Define a function that renders the entire app state and inserts it into the view.
 var $catalog = document.querySelector("div[data-view='catalog']")
 var $details = document.querySelector("div[data-view='details']")
+var $cartContainer = document.querySelector('.cart-container')
 
 function renderAppState() {
   if (app.view === 'catalog') {
@@ -171,11 +172,9 @@ function renderAppState() {
     $details.appendChild(k)
     addHiddenClass('catalog')
   }
-  if (app.view === 'cart') {
-    var j = renderCart(app.cart.item)
-
-  }
-
+  $cartContainer.innerHTML = ''
+  var $cart = cartCount(app.cart)
+  $cartContainer.appendChild($cart)
 }
 renderAppState()
 
