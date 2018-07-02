@@ -90,7 +90,7 @@ var app = {
     item: null
   },
   cart: {
-    item: null
+    item: []
   }
 }
 
@@ -171,6 +171,11 @@ function renderAppState() {
     $details.appendChild(k)
     addHiddenClass('catalog')
   }
+  if (app.view === 'cart') {
+    var j = renderCart(app.cart.item)
+
+  }
+
 }
 renderAppState()
 
@@ -230,6 +235,18 @@ function createFullDetailsCard(item) {
   $largeCardItemId.classList.add('card-text')
   $largeCardItemId.textContent = item.itemId
 
+  var $buttonContainer = document.createElement('div')
+  $largeCardTextContainer.appendChild($buttonContainer)
+
+  var $addToCartButton = document.createElement('a')
+  $buttonContainer.appendChild($addToCartButton)
+  $addToCartButton.classList.add('btn', 'btn-primary')
+  $addToCartButton.textContent = 'Add to Cart'
+
+  // Add a 'click' event listener to the details view on the page.
+  // Determine if the Add to Cart button was clicked and add the app.details.item to the app.cart.
+  $addToCartButton.addEventListener('click', renderCart)
+
   return $largeCard
 }
 
@@ -272,8 +289,13 @@ function addHiddenClass(viewName) {
 
 // function 8 - Define a function that takes a cart object and returns a
 // DOM tree containing the count of items in the cart.
-function createCartCount(cartItem) {
+
+function cartCount() {
   var $cartCount = document.createElement('div')
   $cartCount.textContent = 'Cart (' + app.cart.length + ')'
   return $cartCount
+}
+
+function renderCart() {
+
 }
