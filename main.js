@@ -290,9 +290,9 @@ function addHiddenClass(viewName) {
 // function 8 - Define a function that takes a cart object and returns a
 // DOM tree containing the count of items in the cart.
 
-function cartCount() {
+function cartCount(cart) {
   var $cartCount = document.createElement('div')
-  $cartCount.textContent = 'Cart (' + app.cart.length + ')'
+  $cartCount.textContent = 'Cart (' + cart.item.length + ')'
   return $cartCount
 }
 
