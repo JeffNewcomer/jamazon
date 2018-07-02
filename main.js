@@ -269,3 +269,11 @@ function addHiddenClass(viewName) {
     $details.classList.remove('hidden')
   }
 }
+
+// function 8 - Define a function that takes a cart object and returns a
+// DOM tree containing the count of items in the cart.
+function createCartCount(cartItem) {
+  var $cartCount = document.createElement('div')
+  $cartCount.textContent = 'Cart (' + app.cart.length + ')'
+  return $cartCount
+}
