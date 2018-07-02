@@ -88,6 +88,9 @@ var app = {
   },
   details: {
     item: null
+  },
+  cart: {
+    item: []
   }
 }
 
@@ -96,7 +99,6 @@ function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
 
-  // add attribute to root element of the card
   $card.setAttribute('data-item-id', item.itemId)
 
   var $image = document.createElement('img')
@@ -156,6 +158,7 @@ function createGridAndHeading(allItems) {
 // Function 3 - Define a function that renders the entire app state and inserts it into the view.
 var $catalog = document.querySelector("div[data-view='catalog']")
 var $details = document.querySelector("div[data-view='details']")
+var $cartContainer = document.querySelector('.cart-container')
 
 function renderAppState() {
   if (app.view === 'catalog') {
@@ -168,12 +171,16 @@ function renderAppState() {
     $details.appendChild(k)
     addHiddenClass('catalog')
   }
+  $cartContainer.innerHTML = ''
+  var $cart = cartCount(app.cart)
+  $cartContainer.appendChild($cart)
 }
 renderAppState()
 
 // function 4 - creates full details card and renderds a DOM tree
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
+  $largeCard.classList.add('container')
 
   var $largeCardImageContainer = document.createElement('div')
   $largeCardImageContainer.classList.add('large-card-image-container')
@@ -227,6 +234,23 @@ function createFullDetailsCard(item) {
   $largeCardItemId.classList.add('card-text')
   $largeCardItemId.textContent = item.itemId
 
+  var $buttonContainer = document.createElement('div')
+  $largeCardTextContainer.appendChild($buttonContainer)
+
+  var $addToCartButton = document.createElement('a')
+  $buttonContainer.appendChild($addToCartButton)
+  $addToCartButton.classList.add('btn', 'btn-primary')
+  $addToCartButton.textContent = 'Add to Cart'
+
+  // Add a 'click' event listener to the details view on the page.
+  // Determine if the Add to Cart button was clicked and add the app.details.item to the app.cart.
+  $addToCartButton.addEventListener('click', renderCart)
+  function renderCart() {
+    app.cart.item.push(app.details.item)
+    app.view = 'cart'
+    renderAppState()
+  }
+
   return $largeCard
 }
 
@@ -265,4 +289,12 @@ function addHiddenClass(viewName) {
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
   }
+}
+
+// function 8 - Define a function that takes a cart object and returns a
+// DOM tree containing the count of items in the cart.
+function cartCount(cart) {
+  var $cartCount = document.createElement('div')
+  $cartCount.textContent = 'Cart (' + cart.item.length + ')'
+  return $cartCount
 }
