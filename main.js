@@ -236,7 +236,6 @@ function createFullDetailsCard(item) {
 
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
-  // $buttonContainer.style.border = 'red solid 5px'
 
   var $addToCartButton = document.createElement('a')
   $buttonContainer.appendChild($addToCartButton)
