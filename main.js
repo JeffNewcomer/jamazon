@@ -177,7 +177,7 @@ function renderAppState() {
 }
 renderAppState()
 
-// function 4 - creates full details card and renderds a DOM tree
+// function 4 - creates full details card and renders a DOM tree
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
   $largeCard.classList.add('container')
@@ -255,7 +255,10 @@ function createFullDetailsCard(item) {
   $keepShoppingButton.textContent = 'Keep Shopping'
 
   $keepShoppingButton.addEventListener('click', returnToCatalog)
+
   function returnToCatalog() {
+    $catalog.innerHTML = ''
+    $details.innerHTML = ''
     app.view = 'catalog'
     renderAppState()
   }
