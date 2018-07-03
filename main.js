@@ -310,3 +310,60 @@ function cartCount(cart) {
   $cartCount.textContent = 'Cart (' + cart.item.length + ')'
   return $cartCount
 }
+
+// Define a function that takes a cart item and returns a
+// Bootstrap-styled DOM tree that includes the item name, brand, price, and image.
+function createCartCards(item) { // change to (cartItem)?
+  var $cartCard = document.createElement('div')
+  $cartCard.classList.add('container')
+
+  var $cartCardImageContainer = document.createElement('div')
+  $cartCardImageContainer.classList.add('large-card-image-container')
+  $cartCard.appendChild($cartCardImageContainer)
+
+  var $largeImage = document.createElement('img')
+  $cartCardImageContainer.appendChild($largeImage)
+  $largeImage.setAttribute('src', item.imageUrl)
+  $largeImage.classList.add('large-card-image')
+
+  var $cartCardBody = document.createElement('div')
+  $cartCard.appendChild($cartCardBody)
+  $cartCardBody.classList.add('lrg-card-div')
+
+  var $cartCardTextContainer = document.createElement('div')
+  $cartCardBody.appendChild($cartCardTextContainer)
+  $cartCardTextContainer.classList.add('lrg-card-text-container')
+
+  var $cartCardBrand = document.createElement('h5')
+  $cartCardTextContainer.appendChild($cartCardBrand)
+  $cartCardBrand.classList.add('card-title')
+  $cartCardBrand.textContent = item.brand
+
+  var $cartCardName = document.createElement('h5')
+  $cartCardTextContainer.appendChild($cartCardName)
+  $cartCardName.classList.add('card-title')
+  $cartCardName.textContent = item.name
+
+  var $cartCardPrice = document.createElement('h5')
+  $cartCardTextContainer.appendChild($cartCardPrice)
+  $cartCardPrice.classList.add('card-title')
+  $cartCardPrice.textContent = item.price
+
+  var $buttonContainer = document.createElement('div')
+  $cartCardTextContainer.appendChild($buttonContainer)
+
+  var $keepShoppingButton = document.createElement('a')
+  $buttonContainer.appendChild($keepShoppingButton)
+  $keepShoppingButton.classList.add('btn', 'btn-primary')
+  $keepShoppingButton.textContent = 'Keep Shopping'
+
+  $keepShoppingButton.addEventListener('click', returnToCatalog)
+
+  function returnToCatalog() {
+    $catalog.innerHTML = ''
+    $details.innerHTML = ''
+    app.view = 'catalog'
+    renderAppState()
+  }
+  return $cartCard
+}
