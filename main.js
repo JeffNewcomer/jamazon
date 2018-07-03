@@ -243,8 +243,6 @@ function createFullDetailsCard(item) {
   $addToCartButton.classList.add('btn', 'btn-primary')
   $addToCartButton.textContent = 'Add to Cart'
 
-  // Add a 'click' event listener to the details view on the page.
-  // Determine if the Add to Cart button was clicked and add the app.details.item to the app.cart.
   $addToCartButton.addEventListener('click', renderCart)
   function renderCart() {
     app.cart.item.push(app.details.item)
@@ -257,6 +255,11 @@ function createFullDetailsCard(item) {
   $keepShoppingButton.classList.add('btn', 'btn-primary')
   $keepShoppingButton.textContent = 'Keep Shopping'
 
+  $keepShoppingButton.addEventListener('click', returnToCatalog)
+  function returnToCatalog() {
+    app.view = 'catalog'
+    renderAppState()
+  }
   return $largeCard
 }
 
