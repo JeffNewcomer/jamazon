@@ -236,6 +236,7 @@ function createFullDetailsCard(item) {
 
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
+  // $buttonContainer.style.border = 'red solid 5px'
 
   var $addToCartButton = document.createElement('a')
   $buttonContainer.appendChild($addToCartButton)
@@ -250,6 +251,11 @@ function createFullDetailsCard(item) {
     app.view = 'cart'
     renderAppState()
   }
+
+  var $keepShoppingButton = document.createElement('a')
+  $buttonContainer.appendChild($keepShoppingButton)
+  $keepShoppingButton.classList.add('btn', 'btn-primary')
+  $keepShoppingButton.textContent = 'Keep Shopping'
 
   return $largeCard
 }
