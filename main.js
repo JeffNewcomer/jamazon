@@ -154,6 +154,7 @@ function createGridAndHeading(allItems) {
 var $catalog = document.querySelector("div[data-view='catalog']")
 var $details = document.querySelector("div[data-view='details']")
 var $cart = document.querySelector("div[data-view='cart']")
+var $checkout = document.querySelector("div[data-view='checkout']")
 var $cartCounterContainer = document.querySelector('.cart-count-container')
 
 function renderAppState() {
@@ -172,9 +173,12 @@ function renderAppState() {
   }
   if (app.view === 'cart') {
     $cart.innerHTML = ''
+    $catalog.innerHTML = ''
+    $details.innerHTML = ''
     var j = renderCartPage(app.cart.items)
     $cart.appendChild(j)
   }
+
   $cartCounterContainer.innerHTML = ''
   var $cartCount = cartCount(app.cart)
   $cartCounterContainer.appendChild($cartCount)
@@ -313,8 +317,6 @@ var $cartCounter = document.querySelector('.cart-count-container')
 $cartCounter.addEventListener('click', openTheCart)
 
 function openTheCart() {
-  $catalog.innerHTML = ''
-  $details.innerHTML = ''
   app.view = 'cart'
   renderAppState()
 }
@@ -406,10 +408,17 @@ function renderCartPage(cartObjects) {
   $checkOutButton.classList.add('btn', 'btn-primary')
   $checkOutButton.textContent = 'Check Out'
 
+  $checkOutButton.addEventListener('click', goToCheckOut)
+
   return $cartListContainer
 }
 
 function returnToCatalog() {
   app.view = 'catalog'
+  renderAppState()
+}
+
+function goToCheckOut() {
+  app.view = 'checkout'
   renderAppState()
 }
