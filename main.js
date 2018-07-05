@@ -401,6 +401,11 @@ function renderCartPage(cartObjects) {
 
   $continueShoppingButton.addEventListener('click', returnToCatalog)
 
+  var $checkOutButton = document.createElement('a')
+  $cartContinueShoppingContainer.appendChild($checkOutButton)
+  $checkOutButton.classList.add('btn', 'btn-primary')
+  $checkOutButton.textContent = 'Check Out'
+
   return $cartListContainer
 }
 
