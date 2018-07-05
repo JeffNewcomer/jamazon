@@ -135,7 +135,7 @@ function createGridAndHeading(allItems) {
   var $header = document.createElement('h1')
   $grid.appendChild($header)
   $header.textContent = 'Jamazon'
-  $header.classList.add('headerText')
+  $header.classList.add('header-text')
 
   var $row1 = document.createElement('div')
   $row1.classList.add('row')
@@ -159,6 +159,7 @@ var $cartCounterContainer = document.querySelector('.cart-count-container')
 function renderAppState() {
   if (app.view === 'catalog') {
     $catalog.innerHTML = ''
+    $cart.innerHTML = ''
     var i = createGridAndHeading(app.catalog.items)
     $catalog.appendChild(i)
     addHiddenClass('details')
@@ -318,7 +319,7 @@ function openTheCart() {
   renderAppState()
 }
 
-function createCartItem(item) { // change to (cartItem)?
+function createCartItem(item) {
   var $cartListContainer = document.createElement('div')
   $cartListContainer.classList.add('container')
 
@@ -365,11 +366,11 @@ function renderCartPage(cartObjects) {
   var $cartListContainer = document.createElement('div')
   $cartListContainer.classList.add('cartListContainer')
   $cartHeader.textContent = 'Cart'
-  $cartHeader.classList.add('headerText')
+  $cartHeader.classList.add('header-text')
   $cartListContainer.appendChild($cartHeader)
 
   for (var k = 0; k < cartObjects.length; k++) {
-    $cartListContainer.appendChild(createCartItem(app.cart.items[k]))
+    $cartListContainer.appendChild(createCartItem(cartObjects[k]))
   }
 
   var sum = 0
@@ -404,9 +405,6 @@ function renderCartPage(cartObjects) {
 }
 
 function returnToCatalog() {
-  $catalog.innerHTML = ''
-  $details.innerHTML = ''
-  $cart.innerHTML = ''
   app.view = 'catalog'
   renderAppState()
 }
