@@ -4,7 +4,7 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.jamazonText {
+.header-text {
   font-size: 50px;
   text-align: center;
   padding: 50px;
@@ -15,7 +15,6 @@ body {
   padding: 15px;
 }
 
-/* nullifies the "display: flex" CSS in bootstrap that stretches the images vertically */
 .card {
   display: block;
   height: 420px;
@@ -59,10 +58,37 @@ body {
 }
 
 .btn {
-  margin-left: 580px;
+  margin-left: 150px;
 }
 
-.cart-container {
+.cart-count-container {
+  text-align: center;
+  margin-left: 1450px;
+  width: 100px;
+}
+
+.cart-image {
+  width: 150px;
+  top: 0;
+  float: left;
+  margin: 20px;
+}
+
+.cart-text-image-container {
+  height: 200px;
+  background-color: white;
+  padding-top: 40px;
+  margin-bottom: 15px;
+  box-sizing: content-box;
+}
+
+.cart-total-container {
+  height: 100px;
+  padding-top: 10px;
+  margin-bottom: 15px;
   text-align: right;
-  margin-right: 250px;
+}
+
+.cart-count {
+  font-size: 20px;
 }

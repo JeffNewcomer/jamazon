@@ -90,11 +90,10 @@ var app = {
     item: null
   },
   cart: {
-    item: []
+    items: []
   }
 }
 
-// function 1 - create small cards
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
@@ -129,7 +128,6 @@ function createCard(item) {
   return $card
 }
 
-// function 2 - create grids and  heading
 function createGridAndHeading(allItems) {
   var $grid = document.createElement('div')
   $grid.classList.add('container')
@@ -137,14 +135,12 @@ function createGridAndHeading(allItems) {
   var $header = document.createElement('h1')
   $grid.appendChild($header)
   $header.textContent = 'Jamazon'
-  $header.classList.add('jamazonText')
+  $header.classList.add('header-text')
 
   var $row1 = document.createElement('div')
   $row1.classList.add('row')
   $grid.appendChild($row1)
 
-  // loops through allItems, creates a div, render the card and pass it an item, append
-  // the div to the grid. append the card into the div
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
     $cardDiv.classList.add('col-md-3')
@@ -155,29 +151,36 @@ function createGridAndHeading(allItems) {
   return $grid
 }
 
-// Function 3 - Define a function that renders the entire app state and inserts it into the view.
 var $catalog = document.querySelector("div[data-view='catalog']")
 var $details = document.querySelector("div[data-view='details']")
-var $cartContainer = document.querySelector('.cart-container')
+var $cart = document.querySelector("div[data-view='cart']")
+var $cartCounterContainer = document.querySelector('.cart-count-container')
 
 function renderAppState() {
   if (app.view === 'catalog') {
+    $catalog.innerHTML = ''
+    $cart.innerHTML = ''
     var i = createGridAndHeading(app.catalog.items)
     $catalog.appendChild(i)
     addHiddenClass('details')
   }
   if (app.view === 'details') {
+    $details.innerHTML = ''
     var k = createFullDetailsCard(app.details.item)
     $details.appendChild(k)
     addHiddenClass('catalog')
   }
-  $cartContainer.innerHTML = ''
-  var $cart = cartCount(app.cart)
-  $cartContainer.appendChild($cart)
+  if (app.view === 'cart') {
+    $cart.innerHTML = ''
+    var j = renderCartPage(app.cart.items)
+    $cart.appendChild(j)
+  }
+  $cartCounterContainer.innerHTML = ''
+  var $cartCount = cartCount(app.cart)
+  $cartCounterContainer.appendChild($cartCount)
 }
 renderAppState()
 
-// function 4 - creates full details card and renderds a DOM tree
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
   $largeCard.classList.add('container')
@@ -242,20 +245,26 @@ function createFullDetailsCard(item) {
   $addToCartButton.classList.add('btn', 'btn-primary')
   $addToCartButton.textContent = 'Add to Cart'
 
-  // Add a 'click' event listener to the details view on the page.
-  // Determine if the Add to Cart button was clicked and add the app.details.item to the app.cart.
   $addToCartButton.addEventListener('click', renderCart)
   function renderCart() {
-    app.cart.item.push(app.details.item)
-    app.view = 'cart'
+    app.cart.items.push(app.details.item)
     renderAppState()
   }
 
+  var $keepShoppingButton = document.createElement('a')
+  $buttonContainer.appendChild($keepShoppingButton)
+  $keepShoppingButton.classList.add('btn', 'btn-primary')
+  $keepShoppingButton.textContent = 'Keep Shopping'
+
+  $keepShoppingButton.addEventListener('click', returnToCatalog)
+
+  function returnToCatalog() {
+    app.view = 'catalog'
+    renderAppState()
+  }
   return $largeCard
 }
 
-// function 5 - Define a function that takes an itemId and a list of catalog items and
-// returns the item Object with the matching itemId.
 function getItemObject(clickedCardItemId, catalogItems) {
   for (var i = 0; i < catalogItems.length; i++) {
     if (parseInt(clickedCardItemId, 10) === catalogItems[i].itemId) {
@@ -264,7 +273,6 @@ function getItemObject(clickedCardItemId, catalogItems) {
   }
 }
 
-// function 6 - event listener - returns the object for the item that was clicked
 $catalog.addEventListener('click', displayLargeCard)
 
 function displayLargeCard() {
@@ -276,25 +284,127 @@ function displayLargeCard() {
   renderAppState()
 }
 
-// function 7 - Define a function that takes a view name ('catalog' or 'details')
-// and adds a 'hidden' class to all data-view containers (see divs in html) that don't match that view.
 function addHiddenClass(viewName) {
   if (viewName === 'details') {
-    // adds hidden class to details app view (div)
-    $details.classList.add('hidden')
     $catalog.classList.remove('hidden')
+    $details.classList.add('hidden')
+    $cart.classList.remove('hidden')
   }
   if (viewName === 'catalog') {
-    // adds hidden class to catalog app view (div)
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
+    $cart.classList.remove('hidden')
+  }
+  if (viewName === 'cart') {
+    $catalog.classList.remove('hidden')
+    $details.classList.remove('hidden')
+    $cart.classlist.add('hidden')
   }
 }
 
-// function 8 - Define a function that takes a cart object and returns a
-// DOM tree containing the count of items in the cart.
 function cartCount(cart) {
   var $cartCount = document.createElement('div')
-  $cartCount.textContent = 'Cart (' + cart.item.length + ')'
+  $cartCount.classList.add('cart-count')
+  $cartCount.textContent = 'Cart (' + cart.items.length + ')'
   return $cartCount
+}
+
+var $cartCounter = document.querySelector('.cart-count-container')
+$cartCounter.addEventListener('click', openTheCart)
+
+function openTheCart() {
+  $catalog.innerHTML = ''
+  $details.innerHTML = ''
+  app.view = 'cart'
+  renderAppState()
+}
+
+function createCartItem(item) {
+  var $cartListContainer = document.createElement('div')
+  $cartListContainer.classList.add('container')
+
+  var $cartItemsContainer = document.createElement('div')
+  $cartItemsContainer.classList.add('container', 'cart-items-container')
+  $cartListContainer.appendChild($cartItemsContainer)
+
+  var $cartItemDiv = document.createElement('div')
+  $cartItemDiv.classList.add('container')
+  $cartItemsContainer.appendChild($cartItemDiv)
+
+  var $cartImageContainer = document.createElement('div')
+  $cartImageContainer.classList.add('.large-card-image-container')
+  $cartItemDiv.appendChild($cartImageContainer)
+
+  var $cartImage = document.createElement('img')
+  $cartImageContainer.appendChild($cartImage)
+  $cartImage.setAttribute('src', item.imageUrl)
+  $cartImage.classList.add('cart-image')
+
+  var $cartTextImageContainer = document.createElement('div')
+  $cartItemDiv.appendChild($cartTextImageContainer)
+  $cartTextImageContainer.classList.add('cart-text-image-container')
+
+  var $cartItemName = document.createElement('h5')
+  $cartTextImageContainer.appendChild($cartItemName)
+  $cartItemName.textContent = item.name
+
+  var $cartItemBrand = document.createElement('h5')
+  $cartTextImageContainer.appendChild($cartItemBrand)
+  $cartItemBrand.textContent = item.brand
+
+  var $cartItemPrice = document.createElement('h5')
+  $cartTextImageContainer.appendChild($cartItemPrice)
+  $cartItemPrice.textContent = item.price
+
+  return $cartListContainer
+}
+
+var cartObjects = app.cart.items
+
+function renderCartPage(cartObjects) {
+  var $cartHeader = document.createElement('h1')
+  var $cartListContainer = document.createElement('div')
+  $cartListContainer.classList.add('cartListContainer')
+  $cartHeader.textContent = 'Cart'
+  $cartHeader.classList.add('header-text')
+  $cartListContainer.appendChild($cartHeader)
+
+  for (var k = 0; k < cartObjects.length; k++) {
+    $cartListContainer.appendChild(createCartItem(cartObjects[k]))
+  }
+
+  var sum = 0
+  for (var i = 0; i < cartObjects.length; i++) {
+    sum += cartObjects[i].price
+  }
+
+  var $cartTotalContainer = document.createElement('div')
+  $cartTotalContainer.classList.add('container', 'cart-total-container')
+  $cartListContainer.appendChild($cartTotalContainer)
+
+  var $priceTotal = document.createElement('h4')
+  $priceTotal.textContent = 'Total: $' + sum
+  $cartTotalContainer.appendChild($priceTotal)
+
+  var $itemTotal = document.createElement('h4')
+  $itemTotal.textContent = cartObjects.length + ' Item(s)'
+  $cartTotalContainer.appendChild($itemTotal)
+
+  var $cartContinueShoppingContainer = document.createElement('div')
+  $cartContinueShoppingContainer.classList.add('container', 'cart-total-container')
+  $cartListContainer.appendChild($cartContinueShoppingContainer)
+
+  var $continueShoppingButton = document.createElement('a')
+  $cartContinueShoppingContainer.appendChild($continueShoppingButton)
+  $continueShoppingButton.classList.add('btn', 'btn-primary')
+  $continueShoppingButton.textContent = 'Continue Shopping'
+
+  $continueShoppingButton.addEventListener('click', returnToCatalog)
+
+  return $cartListContainer
+}
+
+function returnToCatalog() {
+  app.view = 'catalog'
+  renderAppState()
 }
