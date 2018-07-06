@@ -10,7 +10,7 @@ var app = {
         name: 'Black Beauty',
         price: 749.99,
         description: 'A snare drum for people with too many drumsticks.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: '14" Snare Drum with Seamless Beaded Brass Shell, P85 Supraphonic Snare Strainer, and Triple-flanged Hoops - Black Chrome Finish',
         origin: 'United States',
         imageUrl: 'images/Ludwig Black Beauty.jpg'
       },
@@ -20,7 +20,7 @@ var app = {
         brand: 'Vatan',
         price: 79.99,
         description: 'A hand drum for people who like belly dancing.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Hand made entirely of aluminum, this hand drum has outstanding sound quality. The durable synthetic head easily and quickly changes range from deep lows to snapping highs.',
         origin: 'Turkey',
         imageUrl: 'images/Vatan Darbuka.jpg'
       },
@@ -30,7 +30,7 @@ var app = {
         brand: 'Remo',
         price: 49.99,
         description: 'A hand drum for people with dreadlocks.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'This little drum out performs most other Djembe drums in its price range. The Remo Djembe is lightweight, portable, and with a weather resistant synthetic-suede drumhead.',
         origin: 'West Africa',
         imageUrl: 'images/Remo Djembe.jpg'
       },
@@ -40,7 +40,7 @@ var app = {
         brand: 'Paiste',
         price: 400,
         description: 'A set of hats for people who spare no expense.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Paiste Hi-Hats have a unique rippled bottom that prevents air lock, giving an overall sharp chick and splashy open sound. Available in 13, 14, and 15 inch sizes.',
         origin: 'Switzerland',
         imageUrl: 'images/Paiste Hi Hats.jpg'
       },
@@ -50,7 +50,7 @@ var app = {
         brand: 'Sonor',
         price: 599,
         description: 'A pedal for metal drummers with only one foot.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'This double bass drum pedal stays flat on the floor while eliminating the tension that can result from different bass drum angles. Anti-slip rubber grips keep your pedal in place.',
         origin: 'Germany',
         imageUrl: 'images/Sonor Giant Step.jpg'
       },
@@ -60,7 +60,7 @@ var app = {
         brand: 'Zildjian',
         price: 24.99,
         description: 'A set of drumsticks from the 90s.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Made to give you great feel and response, Zildjian drumsticks are manufactured for consistency, so you know you are getting top performance every time you pick up a pair.',
         origin: 'United States',
         imageUrl: 'images/Zildjian Travis Barker Signature.jpg'
       },
@@ -70,7 +70,7 @@ var app = {
         brand: 'Meinl',
         price: 129.99,
         description: 'A frame drum for people who like to jig.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Irish Bodhran with Rubber Wood Construction, Goat Skin Head, Dampening layer, Extra Deep Shell, and Allen Wrench. Get a historic sound with modern features in the Meinl Irish Bodhran.',
         origin: 'Ireland',
         imageUrl: 'images/Meinl Bodhran.jpg'
       },
@@ -80,7 +80,7 @@ var app = {
         brand: 'Roland',
         price: 399,
         description: 'A drum machine for people with no desk space.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'The original Roland TR-909 provided analog kick, snare, and toms, along with 6-bit samples for hats and cymbals. This ensured that the 909 sounded like no other drum machine. Roland has brought this classic back in updated fashion.',
         origin: 'Japan',
         imageUrl: 'images/Roland TR-09.jpeg'
       }
@@ -113,20 +113,15 @@ function createCard(item) {
   $card.appendChild($cardBody)
   $cardBody.classList.add('card-body')
 
-  var $brand = document.createElement('h5')
-  $cardBody.appendChild($brand)
-  $brand.classList.add('card-title')
-  $brand.textContent = item.brand
+  var $product = document.createElement('h6')
+  $cardBody.appendChild($product)
+  $product.classList.add('card-title')
+  $product.textContent = item.brand + ' - ' + item.name
 
-  var $name = document.createElement('h5')
-  $cardBody.appendChild($name)
-  $name.classList.add('card-title')
-  $name.textContent = item.name
-
-  var $price = document.createElement('h5')
+  var $price = document.createElement('h6')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = item.price
+  $price.textContent = '$ ' + item.price
 
   return $card
 }
@@ -198,57 +193,52 @@ function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
   $largeCard.classList.add('container')
 
+  var $largeCardBody = document.createElement('div')
+  $largeCard.appendChild($largeCardBody)
+  $largeCardBody.classList.add('lrg-card-div')
+
   var $largeCardImageContainer = document.createElement('div')
   $largeCardImageContainer.classList.add('large-card-image-container')
-  $largeCard.appendChild($largeCardImageContainer)
+  $largeCardBody.appendChild($largeCardImageContainer)
 
   var $largeImage = document.createElement('img')
   $largeCardImageContainer.appendChild($largeImage)
   $largeImage.setAttribute('src', item.imageUrl)
   $largeImage.classList.add('large-card-image')
 
-  var $largeCardBody = document.createElement('div')
-  $largeCard.appendChild($largeCardBody)
-  $largeCardBody.classList.add('lrg-card-div')
-
   var $largeCardTextContainer = document.createElement('div')
   $largeCardBody.appendChild($largeCardTextContainer)
   $largeCardTextContainer.classList.add('lrg-card-text-container')
 
-  var $largeCardBrand = document.createElement('h5')
-  $largeCardTextContainer.appendChild($largeCardBrand)
-  $largeCardBrand.classList.add('card-title')
-  $largeCardBrand.textContent = item.brand
-
-  var $largeCardName = document.createElement('h5')
-  $largeCardTextContainer.appendChild($largeCardName)
-  $largeCardName.classList.add('card-title')
-  $largeCardName.textContent = item.name
+  var $largeCardProduct = document.createElement('h5')
+  $largeCardTextContainer.appendChild($largeCardProduct)
+  $largeCardProduct.classList.add('card-title')
+  $largeCardProduct.textContent = item.brand + ' - ' + item.name
 
   var $largeCardPrice = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
-  $largeCardPrice.textContent = item.price
+  $largeCardPrice.textContent = '$ ' + item.price
 
-  var $largeCardDescription = document.createElement('h3')
+  var $largeCardDescription = document.createElement('h6')
   $largeCardTextContainer.appendChild($largeCardDescription)
   $largeCardDescription.classList.add('card-text')
-  $largeCardDescription.textContent = item.description
+  $largeCardDescription.textContent = 'Description: ' + item.description
+
+  var $largeCardDetailsTitle = document.createElement('p')
+  $largeCardTextContainer.appendChild($largeCardDetailsTitle)
+  $largeCardDetailsTitle.classList.add('card-text')
+  $largeCardDetailsTitle.textContent = 'Details:'
 
   var $largeCardDetails = document.createElement('p')
   $largeCardTextContainer.appendChild($largeCardDetails)
   $largeCardDetails.classList.add('card-text')
   $largeCardDetails.textContent = item.details
 
-  var $largeCardOrigin = document.createElement('h3')
+  var $largeCardOrigin = document.createElement('p')
   $largeCardTextContainer.appendChild($largeCardOrigin)
   $largeCardOrigin.classList.add('card-text')
-  $largeCardOrigin.textContent = item.origin
-
-  var $largeCardItemId = document.createElement('p')
-  $largeCardTextContainer.appendChild($largeCardItemId)
-  $largeCardItemId.classList.add('card-text')
-  $largeCardItemId.textContent = item.itemId
+  $largeCardOrigin.textContent = 'Made in ' + item.origin
 
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
@@ -364,17 +354,13 @@ function createCartItem(item) {
   $cartItemDiv.appendChild($cartTextImageContainer)
   $cartTextImageContainer.classList.add('cart-text-image-container')
 
-  var $cartItemName = document.createElement('h5')
-  $cartTextImageContainer.appendChild($cartItemName)
-  $cartItemName.textContent = item.name
+  var $cartItemProduct = document.createElement('h5')
+  $cartTextImageContainer.appendChild($cartItemProduct)
+  $cartItemProduct.textContent = item.brand + ' - ' + item.name
 
-  var $cartItemBrand = document.createElement('h5')
-  $cartTextImageContainer.appendChild($cartItemBrand)
-  $cartItemBrand.textContent = item.brand
-
-  var $cartItemPrice = document.createElement('h5')
+  var $cartItemPrice = document.createElement('h6')
   $cartTextImageContainer.appendChild($cartItemPrice)
-  $cartItemPrice.textContent = item.price
+  $cartItemPrice.textContent = '$ ' + item.price
 
   return $cartListContainer
 }
