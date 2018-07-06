@@ -12,7 +12,7 @@ var app = {
         description: 'A snare drum for people with too many drumsticks.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'United States',
-        imageUrl: 'https://goo.gl/ubY0QA'
+        imageUrl: 'images/Ludwig Black Beauty.jpg'
       },
       {
         itemId: 2,
@@ -22,7 +22,7 @@ var app = {
         description: 'A hand drum for people who like belly dancing.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'Turkey',
-        imageUrl: 'https://goo.gl/Q7X6VB'
+        imageUrl: 'images/Vatan Darbuka.jpg'
       },
       {
         itemId: 3,
@@ -32,7 +32,7 @@ var app = {
         description: 'A hand drum for people with dreadlocks.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'West Africa',
-        imageUrl: 'https://goo.gl/iKtU8x'
+        imageUrl: 'images/Remo Djembe.jpg'
       },
       {
         itemId: 4,
@@ -42,7 +42,7 @@ var app = {
         description: 'A set of hats for people who spare no expense.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'Switzerland',
-        imageUrl: 'https://goo.gl/LV9l8O'
+        imageUrl: 'images/Paiste Hi Hats.jpg'
       },
       {
         itemId: 5,
@@ -52,7 +52,7 @@ var app = {
         description: 'A pedal for metal drummers with only one foot.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'Germany',
-        imageUrl: 'https://goo.gl/zsFo1q'
+        imageUrl: 'images/Sonor Giant Step.jpg'
       },
       {
         itemId: 6,
@@ -62,7 +62,7 @@ var app = {
         description: 'A set of drumsticks from the 90s.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'United States',
-        imageUrl: 'https://goo.gl/Cro3tL'
+        imageUrl: 'images/Zildjian Travis Barker Signature.jpg'
       },
       {
         itemId: 7,
@@ -72,7 +72,7 @@ var app = {
         description: 'A frame drum for people who like to jig.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'Ireland',
-        imageUrl: 'https://goo.gl/YNb74O'
+        imageUrl: 'images/Meinl Bodhran.jpg'
       },
       {
         itemId: 8,
@@ -82,7 +82,7 @@ var app = {
         description: 'A drum machine for people with no desk space.',
         details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         origin: 'Japan',
-        imageUrl: 'https://goo.gl/gJYUxz'
+        imageUrl: 'images/Roland TR-09.jpeg'
       }
     ]
   },
