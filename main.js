@@ -253,7 +253,7 @@ function createFullDetailsCard(item) {
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
 
-  var $addToCartButton = document.createElement('a')
+  var $addToCartButton = document.createElement('button')
   $buttonContainer.appendChild($addToCartButton)
   $addToCartButton.classList.add('btn', 'btn-primary')
   $addToCartButton.textContent = 'Add to Cart'
@@ -264,7 +264,7 @@ function createFullDetailsCard(item) {
     renderAppState()
   }
 
-  var $keepShoppingButton = document.createElement('a')
+  var $keepShoppingButton = document.createElement('button')
   $buttonContainer.appendChild($keepShoppingButton)
   $keepShoppingButton.classList.add('btn', 'btn-primary')
   $keepShoppingButton.textContent = 'Keep Shopping'
@@ -413,7 +413,7 @@ function renderCartPage(cartObjects) {
   $cartContinueShoppingContainer.classList.add('container', 'cart-total-container')
   $cartListContainer.appendChild($cartContinueShoppingContainer)
 
-  var $continueShoppingButton = document.createElement('a')
+  var $continueShoppingButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($continueShoppingButton)
   $continueShoppingButton.classList.add('btn', 'btn-primary')
   $continueShoppingButton.textContent = 'Continue Shopping'
@@ -425,7 +425,7 @@ function renderCartPage(cartObjects) {
     renderAppState()
   }
 
-  var $checkOutButton = document.createElement('a')
+  var $checkOutButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($checkOutButton)
   $checkOutButton.classList.add('btn', 'btn-primary')
   $checkOutButton.textContent = 'Check Out'
@@ -536,7 +536,7 @@ function createCheckOutFormPage(cartObjects) {
   var $payButtonDiv = document.createElement('div')
   $checkoutTotalContainer.appendChild($payButtonDiv)
 
-  var $payButton = document.createElement('a')
+  var $payButton = document.createElement('button')
   $payButtonDiv.appendChild($payButton)
   $payButton.classList.add('btn', 'btn-primary', 'pay-button')
   $payButton.setAttribute('type', 'submit')
