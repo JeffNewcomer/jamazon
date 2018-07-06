@@ -94,4 +94,12 @@ body {
   font-size: 20px;
 }
 
-/* border: 'red solid 5px'; */
+.pay-button {
+  color: white;
+}
+
+.alert-success {
+  color: black;
+  background-color: lightgray;
+  border-color: lightgray;
+}
