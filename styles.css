@@ -58,13 +58,14 @@ body {
 }
 
 .btn {
-  margin-left: 150px;
+  margin-left: 50px;
 }
 
 .cart-count-container {
   text-align: center;
-  margin-left: 1450px;
   width: 100px;
+  margin-left: auto;
+  margin-right: 50px;
 }
 
 .cart-image {
@@ -91,4 +92,14 @@ body {
 
 .cart-count {
   font-size: 20px;
+}
+
+.pay-button {
+  color: white;
+}
+
+.alert-success {
+  color: black;
+  background-color: lightgray;
+  border-color: lightgray;
 }

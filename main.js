@@ -91,6 +91,9 @@ var app = {
   },
   cart: {
     items: []
+  },
+  checkout: {
+    items: null
   }
 }
 
@@ -154,6 +157,7 @@ function createGridAndHeading(allItems) {
 var $catalog = document.querySelector("div[data-view='catalog']")
 var $details = document.querySelector("div[data-view='details']")
 var $cart = document.querySelector("div[data-view='cart']")
+var $checkout = document.querySelector("div[data-view='checkout']")
 var $cartCounterContainer = document.querySelector('.cart-count-container')
 
 function renderAppState() {
@@ -172,9 +176,18 @@ function renderAppState() {
   }
   if (app.view === 'cart') {
     $cart.innerHTML = ''
+    $catalog.innerHTML = ''
+    $details.innerHTML = ''
+    $checkout.innerHTML = ''
     var j = renderCartPage(app.cart.items)
     $cart.appendChild(j)
   }
+  if (app.view === 'checkout') {
+    $cart.innerHTML = ''
+    var n = createCheckOutFormPage(app.cart.items)
+    $checkout.appendChild(n)
+  }
+
   $cartCounterContainer.innerHTML = ''
   var $cartCount = cartCount(app.cart)
   $cartCounterContainer.appendChild($cartCount)
@@ -289,16 +302,25 @@ function addHiddenClass(viewName) {
     $catalog.classList.remove('hidden')
     $details.classList.add('hidden')
     $cart.classList.remove('hidden')
+    $checkout.classList.remove('hidden')
   }
   if (viewName === 'catalog') {
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
     $cart.classList.remove('hidden')
+    $checkout.classList.remove('hidden')
   }
   if (viewName === 'cart') {
     $catalog.classList.remove('hidden')
     $details.classList.remove('hidden')
-    $cart.classlist.add('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.remove('hidden')
+  }
+  if (viewName === 'checkout') {
+    $catalog.classList.remove('hidden')
+    $details.classList.remove('hidden')
+    $cart.classList.remove('hidden')
+    $checkout.classList.add('hidden')
   }
 }
 
@@ -313,8 +335,6 @@ var $cartCounter = document.querySelector('.cart-count-container')
 $cartCounter.addEventListener('click', openTheCart)
 
 function openTheCart() {
-  $catalog.innerHTML = ''
-  $details.innerHTML = ''
   app.view = 'cart'
   renderAppState()
 }
@@ -364,7 +384,6 @@ var cartObjects = app.cart.items
 function renderCartPage(cartObjects) {
   var $cartHeader = document.createElement('h1')
   var $cartListContainer = document.createElement('div')
-  $cartListContainer.classList.add('cartListContainer')
   $cartHeader.textContent = 'Cart'
   $cartHeader.classList.add('header-text')
   $cartListContainer.appendChild($cartHeader)
@@ -373,14 +392,14 @@ function renderCartPage(cartObjects) {
     $cartListContainer.appendChild(createCartItem(cartObjects[k]))
   }
 
+  var $cartTotalContainer = document.createElement('div')
+  $cartTotalContainer.classList.add('container', 'cart-total-container')
+  $cartListContainer.appendChild($cartTotalContainer)
+
   var sum = 0
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
   }
-
-  var $cartTotalContainer = document.createElement('div')
-  $cartTotalContainer.classList.add('container', 'cart-total-container')
-  $cartListContainer.appendChild($cartTotalContainer)
 
   var $priceTotal = document.createElement('h4')
   $priceTotal.textContent = 'Total: $' + sum
@@ -401,10 +420,139 @@ function renderCartPage(cartObjects) {
 
   $continueShoppingButton.addEventListener('click', returnToCatalog)
 
+  function returnToCatalog() {
+    app.view = 'catalog'
+    renderAppState()
+  }
+
+  var $checkOutButton = document.createElement('a')
+  $cartContinueShoppingContainer.appendChild($checkOutButton)
+  $checkOutButton.classList.add('btn', 'btn-primary')
+  $checkOutButton.textContent = 'Check Out'
+
+  $checkOutButton.addEventListener('click', goToCheckOut)
+
+  function goToCheckOut() {
+    app.view = 'checkout'
+    renderAppState()
+  }
+
   return $cartListContainer
 }
 
-function returnToCatalog() {
-  app.view = 'catalog'
-  renderAppState()
+function createCheckOutFormPage(cartObjects) {
+  var $checkOutPageContainer = document.createElement('div')
+  $checkOutPageContainer.classList.add('container')
+
+  var $checkOutHeader = document.createElement('h1')
+  $checkOutHeader.textContent = 'Checkout'
+  $checkOutHeader.classList.add('header-text')
+  $checkOutPageContainer.appendChild($checkOutHeader)
+
+  var $checkOutFormContainer = document.createElement('div')
+  $checkOutFormContainer.classList.add('container')
+  $checkOutPageContainer.appendChild($checkOutFormContainer)
+
+  var $formNameDiv = document.createElement('div')
+  $formNameDiv.classList.add('form-group', 'row')
+  $checkOutFormContainer.appendChild($formNameDiv)
+
+  var $formNameLabel = document.createElement('label')
+  $formNameLabel.classList.add('col-2', 'col-form-label')
+  $formNameLabel.setAttribute('for', 'example-text-input')
+  $formNameLabel.textContent = 'Name'
+  $formNameDiv.appendChild($formNameLabel)
+
+  var $formNameInputDiv = document.createElement('div')
+  $formNameInputDiv.classList.add('col-10')
+  $formNameDiv.appendChild($formNameInputDiv)
+
+  var $formNameInput = document.createElement('input')
+  $formNameInput.classList.add('form-control')
+  $formNameInput.setAttribute('type', 'text')
+  $formNameInput.setAttribute('value', '')
+  $formNameInput.setAttribute('id', 'example-text-input')
+  $formNameInputDiv.appendChild($formNameInput)
+
+  var $formAddressDiv = document.createElement('div')
+  $formAddressDiv.classList.add('form-group', 'row')
+  $checkOutFormContainer.appendChild($formAddressDiv)
+
+  var $formAddressLabel = document.createElement('label')
+  $formAddressLabel.classList.add('col-2', 'col-form-label')
+  $formAddressLabel.setAttribute('for', 'example-text-input')
+  $formAddressLabel.textContent = 'Address'
+  $formAddressDiv.appendChild($formAddressLabel)
+
+  var $formAddressInputDiv = document.createElement('div')
+  $formAddressInputDiv.classList.add('col-10')
+  $formAddressDiv.appendChild($formAddressInputDiv)
+
+  var $formAddressInput = document.createElement('input')
+  $formAddressInput.classList.add('form-control')
+  $formAddressInput.setAttribute('type', 'text')
+  $formAddressInput.setAttribute('value', '')
+  $formAddressInput.setAttribute('id', 'example-text-input')
+  $formAddressInputDiv.appendChild($formAddressInput)
+
+  var $formCreditCardDiv = document.createElement('div')
+  $formCreditCardDiv.classList.add('form-group', 'row')
+  $checkOutFormContainer.appendChild($formCreditCardDiv)
+
+  var $formCreditCardLabel = document.createElement('label')
+  $formCreditCardLabel.classList.add('col-2', 'col-form-label')
+  $formCreditCardLabel.setAttribute('for', 'example-number-input')
+  $formCreditCardLabel.textContent = 'Credit Card Number'
+  $formCreditCardDiv.appendChild($formCreditCardLabel)
+
+  var $formCreditCardInputDiv = document.createElement('div')
+  $formCreditCardInputDiv.classList.add('col-10')
+  $formCreditCardDiv.appendChild($formCreditCardInputDiv)
+
+  var $formCreditCardInput = document.createElement('input')
+  $formCreditCardInput.classList.add('form-control')
+  $formCreditCardInput.setAttribute('type', 'number')
+  $formCreditCardInput.setAttribute('value', '')
+  $formCreditCardInput.setAttribute('id', 'example-number-input')
+  $formCreditCardInputDiv.appendChild($formCreditCardInput)
+
+  var $checkoutTotalContainer = document.createElement('div')
+  $checkoutTotalContainer.classList.add('container', 'cart-total-container')
+  $checkOutFormContainer.appendChild($checkoutTotalContainer)
+
+  var sum = 0
+  for (var i = 0; i < cartObjects.length; i++) {
+    sum += cartObjects[i].price
+  }
+
+  var $priceTotal = document.createElement('h4')
+  $priceTotal.textContent = 'Total: $' + sum
+  $checkoutTotalContainer.appendChild($priceTotal)
+
+  var $itemTotal = document.createElement('h4')
+  $itemTotal.textContent = cartObjects.length + ' Item(s)'
+  $checkoutTotalContainer.appendChild($itemTotal)
+
+  var $payButtonDiv = document.createElement('div')
+  $checkoutTotalContainer.appendChild($payButtonDiv)
+
+  var $payButton = document.createElement('a')
+  $payButtonDiv.appendChild($payButton)
+  $payButton.classList.add('btn', 'btn-primary', 'pay-button')
+  $payButton.setAttribute('type', 'submit')
+  $payButton.textContent = 'Pay'
+
+  $payButton.addEventListener('click', showAlert)
+
+  function showAlert() {
+    var $payButtonDiv = document.createElement('div')
+    $checkoutTotalContainer.appendChild($payButtonDiv)
+    $payButtonDiv.classList.add('alert', 'alert-success')
+    $payButtonDiv.setAttribute('role', 'alert')
+
+    var $strongAlert = document.createElement('strong')
+    $strongAlert.textContent = 'Thank you. Your order has been placed.'
+    $payButtonDiv.appendChild($strongAlert)
+  }
+  return $checkOutPageContainer
 }
