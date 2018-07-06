@@ -38,7 +38,7 @@ var app = {
         itemId: 4,
         name: 'Hi-Hats',
         brand: 'Paiste',
-        price: 400,
+        price: 400.00,
         description: 'A set of hats for people who spare no expense.',
         details: 'Paiste Hi-Hats have a unique rippled bottom that prevents air lock, giving an overall sharp chick and splashy open sound. Available in 13, 14, and 15 inch sizes.',
         origin: 'Switzerland',
@@ -48,7 +48,7 @@ var app = {
         itemId: 5,
         name: 'Giant Step',
         brand: 'Sonor',
-        price: 599,
+        price: 599.00,
         description: 'A pedal for metal drummers with only one foot.',
         details: 'This double bass drum pedal stays flat on the floor while eliminating the tension that can result from different bass drum angles. Anti-slip rubber grips keep your pedal in place.',
         origin: 'Germany',
@@ -78,7 +78,7 @@ var app = {
         itemId: 8,
         name: 'TR-09',
         brand: 'Roland',
-        price: 399,
+        price: 399.00,
         description: 'A drum machine for people with no desk space.',
         details: 'The original Roland TR-909 provided analog kick, snare, and toms, along with 6-bit samples for hats and cymbals. This ensured that the 909 sounded like no other drum machine. Roland has brought this classic back in updated fashion.',
         origin: 'Japan',
@@ -121,7 +121,7 @@ function createCard(item) {
   var $price = document.createElement('h6')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = '$ ' + item.price
+  $price.textContent = '$ ' + item.price.toFixed(2)
 
   return $card
 }
@@ -219,7 +219,7 @@ function createFullDetailsCard(item) {
   var $largeCardPrice = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
-  $largeCardPrice.textContent = '$ ' + item.price
+  $largeCardPrice.textContent = '$ ' + item.price.toFixed(2)
 
   var $largeCardDescription = document.createElement('h6')
   $largeCardTextContainer.appendChild($largeCardDescription)
@@ -360,7 +360,7 @@ function createCartItem(item) {
   $cartItemProduct.textContent = item.brand + ' - ' + item.name
   var $cartItemPrice = document.createElement('h6')
   $cartTextImageContainer.appendChild($cartItemPrice)
-  $cartItemPrice.textContent = '$ ' + item.price
+  $cartItemPrice.textContent = '$ ' + item.price.toFixed(2)
 
   return $cartListContainer
 }
