@@ -96,7 +96,7 @@ body {
 
 .pay-button {
   margin-top: 10px;
-  color: white;
+  width: 75px;
 }
 
 .alert-success {
@@ -104,4 +104,9 @@ body {
   color: black;
   background-color: lightgray;
   border-color: lightgray;
+}
+
+div.alert.alert-success {
+  text-align: right;
+  padding: 0;
 }
