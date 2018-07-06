@@ -142,6 +142,7 @@ function createGridAndHeading(allItems) {
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
     $cardDiv.classList.add('col-md-3')
+    $cardDiv.style.cursor = 'pointer'
     $row1.appendChild($cardDiv)
     var $newCard = createCard(allItems[i])
     $cardDiv.appendChild($newCard)
@@ -357,7 +358,6 @@ function createCartItem(item) {
   var $cartItemProduct = document.createElement('h5')
   $cartTextImageContainer.appendChild($cartItemProduct)
   $cartItemProduct.textContent = item.brand + ' - ' + item.name
-
   var $cartItemPrice = document.createElement('h6')
   $cartTextImageContainer.appendChild($cartItemPrice)
   $cartItemPrice.textContent = '$ ' + item.price

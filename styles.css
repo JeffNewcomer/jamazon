@@ -91,6 +91,7 @@ body {
 
 .cart-count {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .pay-button {
