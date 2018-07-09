@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 var app = {
   view: 'catalog',
   catalog: {
@@ -100,7 +98,6 @@ var app = {
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
-
   $card.setAttribute('data-item-id', item.itemId)
 
   var $image = document.createElement('img')
@@ -357,8 +354,6 @@ function createCartItem(item) {
 
   return $cartItemsContainer
 }
-
-var cartObjects = app.cart.items
 
 function renderCartPage(cartObjects) {
   var $cartHeader = document.createElement('h1')
