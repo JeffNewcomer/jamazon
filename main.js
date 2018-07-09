@@ -10,9 +10,9 @@ var app = {
         name: 'Black Beauty',
         price: 749.99,
         description: 'A snare drum for people with too many drumsticks.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: '14" Snare Drum with Seamless Beaded Brass Shell, P85 Supraphonic Snare Strainer, and Triple-flanged Hoops - Black Chrome Finish',
         origin: 'United States',
-        imageUrl: 'https://goo.gl/ubY0QA'
+        imageUrl: 'images/Ludwig Black Beauty.jpg'
       },
       {
         itemId: 2,
@@ -20,9 +20,9 @@ var app = {
         brand: 'Vatan',
         price: 79.99,
         description: 'A hand drum for people who like belly dancing.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Hand made entirely of aluminum, this hand drum has outstanding sound quality. The durable synthetic head easily and quickly changes range from deep lows to snapping highs.',
         origin: 'Turkey',
-        imageUrl: 'https://goo.gl/Q7X6VB'
+        imageUrl: 'images/Vatan Darbuka.jpg'
       },
       {
         itemId: 3,
@@ -30,29 +30,29 @@ var app = {
         brand: 'Remo',
         price: 49.99,
         description: 'A hand drum for people with dreadlocks.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'This little drum out performs most other Djembe drums in its price range. The Remo Djembe is lightweight, portable, and with a weather resistant synthetic-suede drumhead.',
         origin: 'West Africa',
-        imageUrl: 'https://goo.gl/iKtU8x'
+        imageUrl: 'images/Remo Djembe.jpg'
       },
       {
         itemId: 4,
         name: 'Hi-Hats',
         brand: 'Paiste',
-        price: 400,
+        price: 400.00,
         description: 'A set of hats for people who spare no expense.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Paiste Hi-Hats have a unique rippled bottom that prevents air lock, giving an overall sharp chick and splashy open sound. Available in 13, 14, and 15 inch sizes.',
         origin: 'Switzerland',
-        imageUrl: 'https://goo.gl/LV9l8O'
+        imageUrl: 'images/Paiste Hi Hats.jpg'
       },
       {
         itemId: 5,
         name: 'Giant Step',
         brand: 'Sonor',
-        price: 599,
+        price: 599.00,
         description: 'A pedal for metal drummers with only one foot.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'This double bass drum pedal stays flat on the floor while eliminating the tension that can result from different bass drum angles. Anti-slip rubber grips keep your pedal in place.',
         origin: 'Germany',
-        imageUrl: 'https://goo.gl/zsFo1q'
+        imageUrl: 'images/Sonor Giant Step.jpg'
       },
       {
         itemId: 6,
@@ -60,9 +60,9 @@ var app = {
         brand: 'Zildjian',
         price: 24.99,
         description: 'A set of drumsticks from the 90s.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Made to give you great feel and response, Zildjian drumsticks are manufactured for consistency, so you know you are getting top performance every time you pick up a pair.',
         origin: 'United States',
-        imageUrl: 'https://goo.gl/Cro3tL'
+        imageUrl: 'images/Zildjian Travis Barker Signature.jpg'
       },
       {
         itemId: 7,
@@ -70,19 +70,19 @@ var app = {
         brand: 'Meinl',
         price: 129.99,
         description: 'A frame drum for people who like to jig.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'Irish Bodhran with Rubber Wood Construction, Goat Skin Head, Dampening layer, Extra Deep Shell, and Allen Wrench. Get a historic sound with modern features in the Meinl Irish Bodhran.',
         origin: 'Ireland',
-        imageUrl: 'https://goo.gl/YNb74O'
+        imageUrl: 'images/Meinl Bodhran.jpg'
       },
       {
         itemId: 8,
         name: 'TR-09',
         brand: 'Roland',
-        price: 399,
+        price: 399.00,
         description: 'A drum machine for people with no desk space.',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        details: 'The original Roland TR-909 provided analog kick, snare, and toms, along with 6-bit samples for hats and cymbals. Roland has brought this classic back in updated fashion.',
         origin: 'Japan',
-        imageUrl: 'https://goo.gl/gJYUxz'
+        imageUrl: 'images/Roland TR-09.jpeg'
       }
     ]
   },
@@ -113,20 +113,15 @@ function createCard(item) {
   $card.appendChild($cardBody)
   $cardBody.classList.add('card-body')
 
-  var $brand = document.createElement('h5')
-  $cardBody.appendChild($brand)
-  $brand.classList.add('card-title')
-  $brand.textContent = item.brand
+  var $product = document.createElement('h6')
+  $cardBody.appendChild($product)
+  $product.classList.add('card-title')
+  $product.textContent = item.brand + ' - ' + item.name
 
-  var $name = document.createElement('h5')
-  $cardBody.appendChild($name)
-  $name.classList.add('card-title')
-  $name.textContent = item.name
-
-  var $price = document.createElement('h5')
+  var $price = document.createElement('h6')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = item.price
+  $price.textContent = '$' + item.price.toFixed(2)
 
   return $card
 }
@@ -147,6 +142,7 @@ function createGridAndHeading(allItems) {
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
     $cardDiv.classList.add('col-md-3')
+    $cardDiv.style.cursor = 'pointer'
     $row1.appendChild($cardDiv)
     var $newCard = createCard(allItems[i])
     $cardDiv.appendChild($newCard)
@@ -196,64 +192,60 @@ renderAppState()
 
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
-  $largeCard.classList.add('container')
+  $largeCard.classList.add('container', 'details-pg-container')
+
+  var $largeCardBody = document.createElement('div')
+  $largeCard.appendChild($largeCardBody)
+  $largeCardBody.classList.add('row', 'lrg-card-div')
 
   var $largeCardImageContainer = document.createElement('div')
-  $largeCardImageContainer.classList.add('large-card-image-container')
-  $largeCard.appendChild($largeCardImageContainer)
+  $largeCardImageContainer.classList.add('col-md-4', 'large-card-image-container')
+  $largeCardBody.appendChild($largeCardImageContainer)
 
   var $largeImage = document.createElement('img')
   $largeCardImageContainer.appendChild($largeImage)
   $largeImage.setAttribute('src', item.imageUrl)
   $largeImage.classList.add('large-card-image')
 
-  var $largeCardBody = document.createElement('div')
-  $largeCard.appendChild($largeCardBody)
-  $largeCardBody.classList.add('lrg-card-div')
-
   var $largeCardTextContainer = document.createElement('div')
   $largeCardBody.appendChild($largeCardTextContainer)
-  $largeCardTextContainer.classList.add('lrg-card-text-container')
+  $largeCardTextContainer.classList.add('col-md-8', 'lrg-card-text-container')
 
-  var $largeCardBrand = document.createElement('h5')
-  $largeCardTextContainer.appendChild($largeCardBrand)
-  $largeCardBrand.classList.add('card-title')
-  $largeCardBrand.textContent = item.brand
-
-  var $largeCardName = document.createElement('h5')
-  $largeCardTextContainer.appendChild($largeCardName)
-  $largeCardName.classList.add('card-title')
-  $largeCardName.textContent = item.name
+  var $largeCardProduct = document.createElement('h5')
+  $largeCardTextContainer.appendChild($largeCardProduct)
+  $largeCardProduct.classList.add('card-title')
+  $largeCardProduct.textContent = item.brand + ' - ' + item.name
 
   var $largeCardPrice = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
-  $largeCardPrice.textContent = item.price
+  $largeCardPrice.textContent = '$' + item.price.toFixed(2)
 
-  var $largeCardDescription = document.createElement('h3')
+  var $largeCardDescription = document.createElement('h6')
   $largeCardTextContainer.appendChild($largeCardDescription)
   $largeCardDescription.classList.add('card-text')
   $largeCardDescription.textContent = item.description
+
+  var $largeCardDetailsTitle = document.createElement('p')
+  $largeCardTextContainer.appendChild($largeCardDetailsTitle)
+  $largeCardDetailsTitle.classList.add('card-text')
+  $largeCardDetailsTitle.textContent = 'Details:'
 
   var $largeCardDetails = document.createElement('p')
   $largeCardTextContainer.appendChild($largeCardDetails)
   $largeCardDetails.classList.add('card-text')
   $largeCardDetails.textContent = item.details
 
-  var $largeCardOrigin = document.createElement('h3')
+  var $largeCardOrigin = document.createElement('p')
   $largeCardTextContainer.appendChild($largeCardOrigin)
   $largeCardOrigin.classList.add('card-text')
-  $largeCardOrigin.textContent = item.origin
-
-  var $largeCardItemId = document.createElement('p')
-  $largeCardTextContainer.appendChild($largeCardItemId)
-  $largeCardItemId.classList.add('card-text')
-  $largeCardItemId.textContent = item.itemId
+  $largeCardOrigin.textContent = 'Made in ' + item.origin
 
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
+  $buttonContainer.classList.add('details-buttons-container')
 
-  var $addToCartButton = document.createElement('a')
+  var $addToCartButton = document.createElement('button')
   $buttonContainer.appendChild($addToCartButton)
   $addToCartButton.classList.add('btn', 'btn-primary')
   $addToCartButton.textContent = 'Add to Cart'
@@ -264,7 +256,7 @@ function createFullDetailsCard(item) {
     renderAppState()
   }
 
-  var $keepShoppingButton = document.createElement('a')
+  var $keepShoppingButton = document.createElement('button')
   $buttonContainer.appendChild($keepShoppingButton)
   $keepShoppingButton.classList.add('btn', 'btn-primary')
   $keepShoppingButton.textContent = 'Keep Shopping'
@@ -331,8 +323,9 @@ function cartCount(cart) {
   return $cartCount
 }
 
-var $cartCounter = document.querySelector('.cart-count-container')
-$cartCounter.addEventListener('click', openTheCart)
+var $cartCountContainer = document.querySelector('.cart-count-container')
+$cartCountContainer.classList.add('container')
+$cartCountContainer.addEventListener('click', openTheCart)
 
 function openTheCart() {
   app.view = 'cart'
@@ -340,43 +333,29 @@ function openTheCart() {
 }
 
 function createCartItem(item) {
-  var $cartListContainer = document.createElement('div')
-  $cartListContainer.classList.add('container')
-
   var $cartItemsContainer = document.createElement('div')
   $cartItemsContainer.classList.add('container', 'cart-items-container')
-  $cartListContainer.appendChild($cartItemsContainer)
-
-  var $cartItemDiv = document.createElement('div')
-  $cartItemDiv.classList.add('container')
-  $cartItemsContainer.appendChild($cartItemDiv)
-
-  var $cartImageContainer = document.createElement('div')
-  $cartImageContainer.classList.add('.large-card-image-container')
-  $cartItemDiv.appendChild($cartImageContainer)
 
   var $cartImage = document.createElement('img')
-  $cartImageContainer.appendChild($cartImage)
+  $cartItemsContainer.appendChild($cartImage)
   $cartImage.setAttribute('src', item.imageUrl)
   $cartImage.classList.add('cart-image')
 
   var $cartTextImageContainer = document.createElement('div')
-  $cartItemDiv.appendChild($cartTextImageContainer)
+  $cartItemsContainer.appendChild($cartTextImageContainer)
   $cartTextImageContainer.classList.add('cart-text-image-container')
 
-  var $cartItemName = document.createElement('h5')
-  $cartTextImageContainer.appendChild($cartItemName)
-  $cartItemName.textContent = item.name
-
-  var $cartItemBrand = document.createElement('h5')
-  $cartTextImageContainer.appendChild($cartItemBrand)
-  $cartItemBrand.textContent = item.brand
+  var $cartItemProduct = document.createElement('h5')
+  $cartTextImageContainer.appendChild($cartItemProduct)
+  $cartItemProduct.textContent = item.brand + ' - ' + item.name
+  $cartItemProduct.classList.add('cart-item-product')
 
   var $cartItemPrice = document.createElement('h5')
   $cartTextImageContainer.appendChild($cartItemPrice)
-  $cartItemPrice.textContent = item.price
+  $cartItemPrice.textContent = '$' + item.price.toFixed(2)
+  $cartItemPrice.classList.add('cart-item-price')
 
-  return $cartListContainer
+  return $cartItemsContainer
 }
 
 var cartObjects = app.cart.items
@@ -400,9 +379,10 @@ function renderCartPage(cartObjects) {
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
   }
+  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum
+  $priceTotal.textContent = 'Total: $' + sum2Decimals
   $cartTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
@@ -413,7 +393,7 @@ function renderCartPage(cartObjects) {
   $cartContinueShoppingContainer.classList.add('container', 'cart-total-container')
   $cartListContainer.appendChild($cartContinueShoppingContainer)
 
-  var $continueShoppingButton = document.createElement('a')
+  var $continueShoppingButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($continueShoppingButton)
   $continueShoppingButton.classList.add('btn', 'btn-primary')
   $continueShoppingButton.textContent = 'Continue Shopping'
@@ -425,7 +405,7 @@ function renderCartPage(cartObjects) {
     renderAppState()
   }
 
-  var $checkOutButton = document.createElement('a')
+  var $checkOutButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($checkOutButton)
   $checkOutButton.classList.add('btn', 'btn-primary')
   $checkOutButton.textContent = 'Check Out'
@@ -464,7 +444,7 @@ function createCheckOutFormPage(cartObjects) {
   $formNameDiv.appendChild($formNameLabel)
 
   var $formNameInputDiv = document.createElement('div')
-  $formNameInputDiv.classList.add('col-10')
+  $formNameInputDiv.classList.add('col-4')
   $formNameDiv.appendChild($formNameInputDiv)
 
   var $formNameInput = document.createElement('input')
@@ -485,7 +465,7 @@ function createCheckOutFormPage(cartObjects) {
   $formAddressDiv.appendChild($formAddressLabel)
 
   var $formAddressInputDiv = document.createElement('div')
-  $formAddressInputDiv.classList.add('col-10')
+  $formAddressInputDiv.classList.add('col-4')
   $formAddressDiv.appendChild($formAddressInputDiv)
 
   var $formAddressInput = document.createElement('input')
@@ -506,7 +486,7 @@ function createCheckOutFormPage(cartObjects) {
   $formCreditCardDiv.appendChild($formCreditCardLabel)
 
   var $formCreditCardInputDiv = document.createElement('div')
-  $formCreditCardInputDiv.classList.add('col-10')
+  $formCreditCardInputDiv.classList.add('col-4')
   $formCreditCardDiv.appendChild($formCreditCardInputDiv)
 
   var $formCreditCardInput = document.createElement('input')
@@ -516,27 +496,29 @@ function createCheckOutFormPage(cartObjects) {
   $formCreditCardInput.setAttribute('id', 'example-number-input')
   $formCreditCardInputDiv.appendChild($formCreditCardInput)
 
-  var $checkoutTotalContainer = document.createElement('div')
-  $checkoutTotalContainer.classList.add('container', 'cart-total-container')
-  $checkOutFormContainer.appendChild($checkoutTotalContainer)
+  var $checkOutTotalContainer = document.createElement('div')
+  $checkOutTotalContainer.classList.add('container', 'cart-total-container')
+  $checkOutPageContainer.appendChild($checkOutTotalContainer)
 
   var sum = 0
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
+
   }
+  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum
-  $checkoutTotalContainer.appendChild($priceTotal)
+  $priceTotal.textContent = 'Total: $' + sum2Decimals
+  $checkOutTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
   $itemTotal.textContent = cartObjects.length + ' Item(s)'
-  $checkoutTotalContainer.appendChild($itemTotal)
+  $checkOutTotalContainer.appendChild($itemTotal)
 
   var $payButtonDiv = document.createElement('div')
-  $checkoutTotalContainer.appendChild($payButtonDiv)
+  $checkOutPageContainer.appendChild($payButtonDiv)
 
-  var $payButton = document.createElement('a')
+  var $payButton = document.createElement('button')
   $payButtonDiv.appendChild($payButton)
   $payButton.classList.add('btn', 'btn-primary', 'pay-button')
   $payButton.setAttribute('type', 'submit')
@@ -546,7 +528,7 @@ function createCheckOutFormPage(cartObjects) {
 
   function showAlert() {
     var $payButtonDiv = document.createElement('div')
-    $checkoutTotalContainer.appendChild($payButtonDiv)
+    $checkOutPageContainer.appendChild($payButtonDiv)
     $payButtonDiv.classList.add('alert', 'alert-success')
     $payButtonDiv.setAttribute('role', 'alert')
 

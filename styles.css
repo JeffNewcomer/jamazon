@@ -1,13 +1,17 @@
 body {
   background: lightgray;
   color: black;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.cart-count-container {
+  padding-top: 7px;
 }
 
 .header-text {
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
-  padding: 50px;
+  padding: 20px;
 }
 
 .images {
@@ -17,12 +21,12 @@ body {
 
 .card {
   display: block;
-  height: 420px;
+  height: 340px;
+  border-radius: 8px;
 }
 
 .card-body {
-  position: absolute;
-  bottom: 0;
+  padding-right: 3px;
 }
 
 .col-md-3 {
@@ -33,73 +37,122 @@ body {
   display: none;
 }
 
+.details-pg-container {
+  align-content: center;
+}
+
 .lrg-card-div {
   background-color: white;
-  height: 450px;
+  height: 308px;
   margin-top: 50px;
-  width: 1120px;
+  width: 70%;
+  margin-left: 14%;
+  border-radius: 8px;
 }
 
 .large-card-image-container {
-  height: 420px;
-  float: left;
+  height: 308px;
+  width: 33%;
+  padding: 0;
+  border-radius: 8px 0 0 8px;
 }
 
 .large-card-image {
-  width: 290px;
-  top: 0;
+  width: 250px;
+  margin: 32px 0;
+  padding-left: 25px;
   float: left;
-  padding: 40px;
+  border-radius: 8px 0 0 8px;
 }
 
 .lrg-card-text-container {
-  padding: 20px;
-  width: 1000px;
+  padding-top: 20px;
+  width: 66%;
+  line-height: 1.2;
+  float: left;
+  border-radius: 0 8px 8px 0;
+}
+
+.details-buttons-container {
+  float: right;
 }
 
 .btn {
-  margin-left: 50px;
-}
-
-.cart-count-container {
-  text-align: center;
-  width: 100px;
-  margin-left: auto;
-  margin-right: 50px;
-}
-
-.cart-image {
-  width: 150px;
-  top: 0;
-  float: left;
-  margin: 20px;
-}
-
-.cart-text-image-container {
-  height: 200px;
-  background-color: white;
-  padding-top: 40px;
-  margin-bottom: 15px;
-  box-sizing: content-box;
-}
-
-.cart-total-container {
-  height: 100px;
-  padding-top: 10px;
-  margin-bottom: 15px;
-  text-align: right;
+  padding-top: 4px;
+  font-size: 14px;
+  margin: 0 2px 0 20px;
 }
 
 .cart-count {
+  text-align: right;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-image {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-left: 1%;
+  border-radius: 8px 0 0 8px;
+}
+
+.cart-text-image-container {
+  height: 100px;
+  width: 89%;
+  background-color: white;
+  display: inline-block;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1%;
+}
+
+.cart-item-product {
+  float: left;
+  margin: 10px 0 0 10px;
+}
+
+.cart-item-price {
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+.cart-total-container {
+  height: 90px;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.col-form-label {
+  margin-left: 17%;
+}
+
+div.col-10 {
+  width: 6450px;
+}
+
+div.form-group-row {
+  margin: auto;
+}
+
+.form-control {
+  width: 100%;
+  margin: 0;
 }
 
 .pay-button {
-  color: white;
+  margin-left: 92%;
+  width: 75px;
 }
 
 .alert-success {
+  margin-top: 30px;
   color: black;
   background-color: lightgray;
   border-color: lightgray;
+}
+
+div.alert.alert-success {
+  text-align: right;
+  padding: 0;
+  margin-right: 1%;
 }
