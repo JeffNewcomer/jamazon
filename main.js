@@ -348,9 +348,12 @@ function createCartItem(item) {
   var $cartItemProduct = document.createElement('h5')
   $cartTextImageContainer.appendChild($cartItemProduct)
   $cartItemProduct.textContent = item.brand + ' - ' + item.name
-  var $cartItemPrice = document.createElement('h6')
+  $cartItemProduct.classList.add('cart-item-product')
+
+  var $cartItemPrice = document.createElement('h5')
   $cartTextImageContainer.appendChild($cartItemPrice)
   $cartItemPrice.textContent = '$' + item.price.toFixed(2)
+  $cartItemPrice.classList.add('cart-item-price')
 
   return $cartItemsContainer
 }
@@ -376,9 +379,10 @@ function renderCartPage(cartObjects) {
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
   }
+  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum
+  $priceTotal.textContent = 'Total: $' + sum2Decimals
   $cartTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
@@ -492,25 +496,27 @@ function createCheckOutFormPage(cartObjects) {
   $formCreditCardInput.setAttribute('id', 'example-number-input')
   $formCreditCardInputDiv.appendChild($formCreditCardInput)
 
-  var $checkoutTotalContainer = document.createElement('div')
-  $checkoutTotalContainer.classList.add('container', 'cart-total-container')
-  $checkOutFormContainer.appendChild($checkoutTotalContainer)
+  var $checkOutTotalContainer = document.createElement('div')
+  $checkOutTotalContainer.classList.add('container', 'cart-total-container')
+  $checkOutPageContainer.appendChild($checkOutTotalContainer)
 
   var sum = 0
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
+
   }
+  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum
-  $checkoutTotalContainer.appendChild($priceTotal)
+  $priceTotal.textContent = 'Total: $' + sum2Decimals
+  $checkOutTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
   $itemTotal.textContent = cartObjects.length + ' Item(s)'
-  $checkoutTotalContainer.appendChild($itemTotal)
+  $checkOutTotalContainer.appendChild($itemTotal)
 
   var $payButtonDiv = document.createElement('div')
-  $checkoutTotalContainer.appendChild($payButtonDiv)
+  $checkOutPageContainer.appendChild($payButtonDiv)
 
   var $payButton = document.createElement('button')
   $payButtonDiv.appendChild($payButton)
@@ -522,7 +528,7 @@ function createCheckOutFormPage(cartObjects) {
 
   function showAlert() {
     var $payButtonDiv = document.createElement('div')
-    $checkoutTotalContainer.appendChild($payButtonDiv)
+    $checkOutPageContainer.appendChild($payButtonDiv)
     $payButtonDiv.classList.add('alert', 'alert-success')
     $payButtonDiv.setAttribute('role', 'alert')
 
