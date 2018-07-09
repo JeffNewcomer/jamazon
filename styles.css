@@ -18,7 +18,7 @@ body {
 .card {
   display: block;
   height: 340px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .card-body {
@@ -39,18 +39,18 @@ body {
 
 .lrg-card-div {
   background-color: white;
-  height: 300px;
+  height: 308px;
   margin-top: 50px;
-  width: 800px;
+  width: 70%;
   margin-left: 14%;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .large-card-image-container {
-  height: 300px;
-  width: 200px;
+  height: 308px;
+  width: 33%;
   padding: 0;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
 
 .large-card-image {
@@ -58,19 +58,19 @@ body {
   margin: 32px 0;
   padding-left: 25px;
   float: left;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 }
 
 .lrg-card-text-container {
   padding-top: 20px;
-  width: 1000px;
-  line-height: 1;
+  width: 66%;
+  line-height: 1.2;
   float: left;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 8px 8px 0;
 }
 
 .details-buttons-container {
-  text-align: right;
+  float: right;
 }
 
 .btn {
@@ -86,18 +86,19 @@ body {
 }
 
 .cart-image {
-  width: 200px;
-  top: 0;
+  width: 100px;
   float: left;
-  margin: 20px;
+  margin-left: 1%;
+  border-radius: 8px 0 0 8px;
 }
 
 .cart-text-image-container {
-  height: 200px;
+  height: 100px;
+  width: 89%;
   background-color: white;
-  padding-top: 40px;
-  margin-bottom: 15px;
-  box-sizing: content-box;
+  display: inline-block;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1%;
 }
 
 .cart-total-container {
@@ -105,6 +106,23 @@ body {
   padding-top: 10px;
   margin-bottom: 15px;
   text-align: right;
+}
+
+.col-form-label {
+  margin-left: 17%;
+}
+
+div.col-10 {
+  width: 6450px;
+}
+
+div.form-group-row {
+  margin: auto;
+}
+
+.form-control {
+  width: 100%;
+  margin: 0;
 }
 
 .pay-button {

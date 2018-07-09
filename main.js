@@ -333,28 +333,16 @@ function openTheCart() {
 }
 
 function createCartItem(item) {
-  var $cartListContainer = document.createElement('div')
-  $cartListContainer.classList.add('container')
-
   var $cartItemsContainer = document.createElement('div')
   $cartItemsContainer.classList.add('container', 'cart-items-container')
-  $cartListContainer.appendChild($cartItemsContainer)
-
-  var $cartItemDiv = document.createElement('div')
-  $cartItemDiv.classList.add('container')
-  $cartItemsContainer.appendChild($cartItemDiv)
-
-  var $cartImageContainer = document.createElement('div')
-  $cartImageContainer.classList.add('.large-card-image-container')
-  $cartItemDiv.appendChild($cartImageContainer)
 
   var $cartImage = document.createElement('img')
-  $cartImageContainer.appendChild($cartImage)
+  $cartItemsContainer.appendChild($cartImage)
   $cartImage.setAttribute('src', item.imageUrl)
   $cartImage.classList.add('cart-image')
 
   var $cartTextImageContainer = document.createElement('div')
-  $cartItemDiv.appendChild($cartTextImageContainer)
+  $cartItemsContainer.appendChild($cartTextImageContainer)
   $cartTextImageContainer.classList.add('cart-text-image-container')
 
   var $cartItemProduct = document.createElement('h5')
@@ -364,7 +352,7 @@ function createCartItem(item) {
   $cartTextImageContainer.appendChild($cartItemPrice)
   $cartItemPrice.textContent = '$' + item.price.toFixed(2)
 
-  return $cartListContainer
+  return $cartItemsContainer
 }
 
 var cartObjects = app.cart.items
@@ -452,7 +440,7 @@ function createCheckOutFormPage(cartObjects) {
   $formNameDiv.appendChild($formNameLabel)
 
   var $formNameInputDiv = document.createElement('div')
-  $formNameInputDiv.classList.add('col-10')
+  $formNameInputDiv.classList.add('col-4')
   $formNameDiv.appendChild($formNameInputDiv)
 
   var $formNameInput = document.createElement('input')
@@ -473,7 +461,7 @@ function createCheckOutFormPage(cartObjects) {
   $formAddressDiv.appendChild($formAddressLabel)
 
   var $formAddressInputDiv = document.createElement('div')
-  $formAddressInputDiv.classList.add('col-10')
+  $formAddressInputDiv.classList.add('col-4')
   $formAddressDiv.appendChild($formAddressInputDiv)
 
   var $formAddressInput = document.createElement('input')
@@ -494,7 +482,7 @@ function createCheckOutFormPage(cartObjects) {
   $formCreditCardDiv.appendChild($formCreditCardLabel)
 
   var $formCreditCardInputDiv = document.createElement('div')
-  $formCreditCardInputDiv.classList.add('col-10')
+  $formCreditCardInputDiv.classList.add('col-4')
   $formCreditCardDiv.appendChild($formCreditCardInputDiv)
 
   var $formCreditCardInput = document.createElement('input')
