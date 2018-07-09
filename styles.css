@@ -18,6 +18,7 @@ body {
 .card {
   display: block;
   height: 340px;
+  border-radius: 10px;
 }
 
 .card-body {
@@ -32,39 +33,56 @@ body {
   display: none;
 }
 
+.details-pg-container {
+  align-content: center;
+}
+
 .lrg-card-div {
   background-color: white;
-  height: 450px;
+  height: 300px;
   margin-top: 50px;
-  width: 1120px;
+  width: 800px;
+  margin-left: 14%;
+  border-radius: 10px;
 }
 
 .large-card-image-container {
-  height: 420px;
-  float: left;
+  height: 300px;
+  width: 200px;
+  padding: 0;
+  border-radius: 10px 0 0 10px;
 }
 
 .large-card-image {
-  width: 290px;
-  top: 0;
+  width: 250px;
+  margin: 32px 0;
+  padding-left: 25px;
   float: left;
-  padding: 40px;
+  border-radius: 10px 0 0 10px;
 }
 
 .lrg-card-text-container {
-  padding: 20px;
+  padding-top: 20px;
   width: 1000px;
+  line-height: 1;
+  float: left;
+  border-radius: 0 10px 10px 0;
+}
+
+.details-buttons-container {
+  text-align: right;
 }
 
 .btn {
-  margin-left: 50px;
+  padding-top: 4px;
+  font-size: 14px;
+  margin: 0 2px 0 20px;
 }
 
-.cart-count-container {
-  text-align: center;
-  width: 100px;
-  margin-left: auto;
-  margin-right: 50px;
+.cart-count {
+  text-align: right;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .cart-image {
@@ -87,11 +105,6 @@ body {
   padding-top: 10px;
   margin-bottom: 15px;
   text-align: right;
-}
-
-.cart-count {
-  font-size: 20px;
-  cursor: pointer;
 }
 
 .pay-button {

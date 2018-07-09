@@ -80,7 +80,7 @@ var app = {
         brand: 'Roland',
         price: 399.00,
         description: 'A drum machine for people with no desk space.',
-        details: 'The original Roland TR-909 provided analog kick, snare, and toms, along with 6-bit samples for hats and cymbals. This ensured that the 909 sounded like no other drum machine. Roland has brought this classic back in updated fashion.',
+        details: 'The original Roland TR-909 provided analog kick, snare, and toms, along with 6-bit samples for hats and cymbals. Roland has brought this classic back in updated fashion.',
         origin: 'Japan',
         imageUrl: 'images/Roland TR-09.jpeg'
       }
@@ -121,7 +121,7 @@ function createCard(item) {
   var $price = document.createElement('h6')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = '$ ' + item.price.toFixed(2)
+  $price.textContent = '$' + item.price.toFixed(2)
 
   return $card
 }
@@ -192,14 +192,14 @@ renderAppState()
 
 function createFullDetailsCard(item) {
   var $largeCard = document.createElement('div')
-  $largeCard.classList.add('container')
+  $largeCard.classList.add('container', 'details-pg-container')
 
   var $largeCardBody = document.createElement('div')
   $largeCard.appendChild($largeCardBody)
-  $largeCardBody.classList.add('lrg-card-div')
+  $largeCardBody.classList.add('row', 'lrg-card-div')
 
   var $largeCardImageContainer = document.createElement('div')
-  $largeCardImageContainer.classList.add('large-card-image-container')
+  $largeCardImageContainer.classList.add('col-md-4', 'large-card-image-container')
   $largeCardBody.appendChild($largeCardImageContainer)
 
   var $largeImage = document.createElement('img')
@@ -209,7 +209,7 @@ function createFullDetailsCard(item) {
 
   var $largeCardTextContainer = document.createElement('div')
   $largeCardBody.appendChild($largeCardTextContainer)
-  $largeCardTextContainer.classList.add('lrg-card-text-container')
+  $largeCardTextContainer.classList.add('col-md-8', 'lrg-card-text-container')
 
   var $largeCardProduct = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardProduct)
@@ -219,12 +219,12 @@ function createFullDetailsCard(item) {
   var $largeCardPrice = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
-  $largeCardPrice.textContent = '$ ' + item.price.toFixed(2)
+  $largeCardPrice.textContent = '$' + item.price.toFixed(2)
 
   var $largeCardDescription = document.createElement('h6')
   $largeCardTextContainer.appendChild($largeCardDescription)
   $largeCardDescription.classList.add('card-text')
-  $largeCardDescription.textContent = 'Description: ' + item.description
+  $largeCardDescription.textContent = item.description
 
   var $largeCardDetailsTitle = document.createElement('p')
   $largeCardTextContainer.appendChild($largeCardDetailsTitle)
@@ -243,6 +243,7 @@ function createFullDetailsCard(item) {
 
   var $buttonContainer = document.createElement('div')
   $largeCardTextContainer.appendChild($buttonContainer)
+  $buttonContainer.classList.add('details-buttons-container')
 
   var $addToCartButton = document.createElement('button')
   $buttonContainer.appendChild($addToCartButton)
@@ -322,8 +323,9 @@ function cartCount(cart) {
   return $cartCount
 }
 
-var $cartCounter = document.querySelector('.cart-count-container')
-$cartCounter.addEventListener('click', openTheCart)
+var $cartCountContainer = document.querySelector('.cart-count-container')
+$cartCountContainer.classList.add('container')
+$cartCountContainer.addEventListener('click', openTheCart)
 
 function openTheCart() {
   app.view = 'cart'
@@ -360,7 +362,7 @@ function createCartItem(item) {
   $cartItemProduct.textContent = item.brand + ' - ' + item.name
   var $cartItemPrice = document.createElement('h6')
   $cartTextImageContainer.appendChild($cartItemPrice)
-  $cartItemPrice.textContent = '$ ' + item.price.toFixed(2)
+  $cartItemPrice.textContent = '$' + item.price.toFixed(2)
 
   return $cartListContainer
 }
