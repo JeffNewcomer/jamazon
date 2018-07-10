@@ -95,6 +95,22 @@ var app = {
   }
 }
 
+function cartCount(cart) {
+  var $cartCount = document.createElement('div')
+  $cartCount.classList.add('cart-count')
+  $cartCount.textContent = 'Cart (' + cart.items.length + ')'
+  return $cartCount
+}
+
+var $cartCountContainer = document.querySelector('.cart-count-container')
+$cartCountContainer.classList.add('container')
+$cartCountContainer.addEventListener('click', openTheCart)
+
+function openTheCart() {
+  app.view = 'cart'
+  renderAppState()
+}
+
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
@@ -172,6 +188,7 @@ function renderAppState() {
     showView('cart')
   }
   if (app.view === 'checkout') {
+    $checkout.innerHTML = ''
     var n = createCheckOutFormPage(app.cart.items)
     $checkout.appendChild(n)
     showView('checkout')
@@ -306,22 +323,6 @@ function showView(viewName) {
     $cart.classList.add('hidden')
     $checkout.classList.remove('hidden')
   }
-}
-
-function cartCount(cart) {
-  var $cartCount = document.createElement('div')
-  $cartCount.classList.add('cart-count')
-  $cartCount.textContent = 'Cart (' + cart.items.length + ')'
-  return $cartCount
-}
-
-var $cartCountContainer = document.querySelector('.cart-count-container')
-$cartCountContainer.classList.add('container')
-$cartCountContainer.addEventListener('click', openTheCart)
-
-function openTheCart() {
-  app.view = 'cart'
-  renderAppState()
 }
 
 function createCartItem(item) {
@@ -525,6 +526,13 @@ function createCheckOutFormPage(cartObjects) {
     var $strongAlert = document.createElement('strong')
     $strongAlert.textContent = 'Thank you. Your order has been placed.'
     $payButtonDiv.appendChild($strongAlert)
+
+    function goBackToCatalog() {
+      app.view = 'catalog'
+      app.cart.items = []
+      renderAppState('catalog')
+    }
+    setTimeout(goBackToCatalog, 1500)
   }
   return $checkOutPageContainer
 }
