@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 var app = {
   view: 'catalog',
   catalog: {
@@ -97,10 +95,25 @@ var app = {
   }
 }
 
+function cartCount(cart) {
+  var $cartCount = document.createElement('div')
+  $cartCount.classList.add('cart-count')
+  $cartCount.textContent = 'Cart (' + cart.items.length + ')'
+  return $cartCount
+}
+
+var $cartCountContainer = document.querySelector('.cart-count-container')
+$cartCountContainer.classList.add('container')
+$cartCountContainer.addEventListener('click', openTheCart)
+
+function openTheCart() {
+  app.view = 'cart'
+  renderAppState()
+}
+
 function createCard(item) {
   var $card = document.createElement('div')
   $card.classList.add('card')
-
   $card.setAttribute('data-item-id', item.itemId)
 
   var $image = document.createElement('img')
@@ -141,8 +154,7 @@ function createGridAndHeading(allItems) {
 
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
-    $cardDiv.classList.add('col-md-3')
-    $cardDiv.style.cursor = 'pointer'
+    $cardDiv.classList.add('col-md-3', 'grid-card-divs')
     $row1.appendChild($cardDiv)
     var $newCard = createCard(allItems[i])
     $cardDiv.appendChild($newCard)
@@ -159,31 +171,28 @@ var $cartCounterContainer = document.querySelector('.cart-count-container')
 function renderAppState() {
   if (app.view === 'catalog') {
     $catalog.innerHTML = ''
-    $cart.innerHTML = ''
     var i = createGridAndHeading(app.catalog.items)
     $catalog.appendChild(i)
-    addHiddenClass('details')
+    showView('catalog')
   }
   if (app.view === 'details') {
     $details.innerHTML = ''
     var k = createFullDetailsCard(app.details.item)
     $details.appendChild(k)
-    addHiddenClass('catalog')
+    showView('details')
   }
   if (app.view === 'cart') {
     $cart.innerHTML = ''
-    $catalog.innerHTML = ''
-    $details.innerHTML = ''
-    $checkout.innerHTML = ''
     var j = renderCartPage(app.cart.items)
     $cart.appendChild(j)
+    showView('cart')
   }
   if (app.view === 'checkout') {
-    $cart.innerHTML = ''
+    $checkout.innerHTML = ''
     var n = createCheckOutFormPage(app.cart.items)
     $checkout.appendChild(n)
+    showView('checkout')
   }
-
   $cartCounterContainer.innerHTML = ''
   var $cartCount = cartCount(app.cart)
   $cartCounterContainer.appendChild($cartCount)
@@ -247,7 +256,7 @@ function createFullDetailsCard(item) {
 
   var $addToCartButton = document.createElement('button')
   $buttonContainer.appendChild($addToCartButton)
-  $addToCartButton.classList.add('btn', 'btn-primary')
+  $addToCartButton.classList.add('btn', 'btn-primary', 'buttons')
   $addToCartButton.textContent = 'Add to Cart'
 
   $addToCartButton.addEventListener('click', renderCart)
@@ -258,7 +267,7 @@ function createFullDetailsCard(item) {
 
   var $keepShoppingButton = document.createElement('button')
   $buttonContainer.appendChild($keepShoppingButton)
-  $keepShoppingButton.classList.add('btn', 'btn-primary')
+  $keepShoppingButton.classList.add('btn', 'btn-primary', 'buttons')
   $keepShoppingButton.textContent = 'Keep Shopping'
 
   $keepShoppingButton.addEventListener('click', returnToCatalog)
@@ -289,47 +298,31 @@ function displayLargeCard() {
   renderAppState()
 }
 
-function addHiddenClass(viewName) {
+function showView(viewName) {
   if (viewName === 'details') {
-    $catalog.classList.remove('hidden')
-    $details.classList.add('hidden')
-    $cart.classList.remove('hidden')
-    $checkout.classList.remove('hidden')
-  }
-  if (viewName === 'catalog') {
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
-    $cart.classList.remove('hidden')
-    $checkout.classList.remove('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.add('hidden')
+  }
+  if (viewName === 'catalog') {
+    $catalog.classList.remove('hidden')
+    $details.classList.add('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.add('hidden')
   }
   if (viewName === 'cart') {
-    $catalog.classList.remove('hidden')
-    $details.classList.remove('hidden')
-    $cart.classList.add('hidden')
-    $checkout.classList.remove('hidden')
-  }
-  if (viewName === 'checkout') {
-    $catalog.classList.remove('hidden')
-    $details.classList.remove('hidden')
+    $catalog.classList.add('hidden')
+    $details.classList.add('hidden')
     $cart.classList.remove('hidden')
     $checkout.classList.add('hidden')
   }
-}
-
-function cartCount(cart) {
-  var $cartCount = document.createElement('div')
-  $cartCount.classList.add('cart-count')
-  $cartCount.textContent = 'Cart (' + cart.items.length + ')'
-  return $cartCount
-}
-
-var $cartCountContainer = document.querySelector('.cart-count-container')
-$cartCountContainer.classList.add('container')
-$cartCountContainer.addEventListener('click', openTheCart)
-
-function openTheCart() {
-  app.view = 'cart'
-  renderAppState()
+  if (viewName === 'checkout') {
+    $catalog.classList.add('hidden')
+    $details.classList.add('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.remove('hidden')
+  }
 }
 
 function createCartItem(item) {
@@ -357,8 +350,6 @@ function createCartItem(item) {
 
   return $cartItemsContainer
 }
-
-var cartObjects = app.cart.items
 
 function renderCartPage(cartObjects) {
   var $cartHeader = document.createElement('h1')
@@ -395,7 +386,7 @@ function renderCartPage(cartObjects) {
 
   var $continueShoppingButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($continueShoppingButton)
-  $continueShoppingButton.classList.add('btn', 'btn-primary')
+  $continueShoppingButton.classList.add('btn', 'btn-primary', 'buttons')
   $continueShoppingButton.textContent = 'Continue Shopping'
 
   $continueShoppingButton.addEventListener('click', returnToCatalog)
@@ -407,7 +398,7 @@ function renderCartPage(cartObjects) {
 
   var $checkOutButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($checkOutButton)
-  $checkOutButton.classList.add('btn', 'btn-primary')
+  $checkOutButton.classList.add('btn', 'btn-primary', 'buttons')
   $checkOutButton.textContent = 'Check Out'
 
   $checkOutButton.addEventListener('click', goToCheckOut)
@@ -438,7 +429,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formNameDiv)
 
   var $formNameLabel = document.createElement('label')
-  $formNameLabel.classList.add('col-2', 'col-form-label')
+  $formNameLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formNameLabel.setAttribute('for', 'example-text-input')
   $formNameLabel.textContent = 'Name'
   $formNameDiv.appendChild($formNameLabel)
@@ -459,7 +450,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formAddressDiv)
 
   var $formAddressLabel = document.createElement('label')
-  $formAddressLabel.classList.add('col-2', 'col-form-label')
+  $formAddressLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formAddressLabel.setAttribute('for', 'example-text-input')
   $formAddressLabel.textContent = 'Address'
   $formAddressDiv.appendChild($formAddressLabel)
@@ -480,7 +471,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formCreditCardDiv)
 
   var $formCreditCardLabel = document.createElement('label')
-  $formCreditCardLabel.classList.add('col-2', 'col-form-label')
+  $formCreditCardLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formCreditCardLabel.setAttribute('for', 'example-number-input')
   $formCreditCardLabel.textContent = 'Credit Card Number'
   $formCreditCardDiv.appendChild($formCreditCardLabel)
@@ -520,7 +511,7 @@ function createCheckOutFormPage(cartObjects) {
 
   var $payButton = document.createElement('button')
   $payButtonDiv.appendChild($payButton)
-  $payButton.classList.add('btn', 'btn-primary', 'pay-button')
+  $payButton.classList.add('btn', 'btn-primary', 'pay-button', 'buttons')
   $payButton.setAttribute('type', 'submit')
   $payButton.textContent = 'Pay'
 
@@ -529,12 +520,19 @@ function createCheckOutFormPage(cartObjects) {
   function showAlert() {
     var $payButtonDiv = document.createElement('div')
     $checkOutPageContainer.appendChild($payButtonDiv)
-    $payButtonDiv.classList.add('alert', 'alert-success')
+    $payButtonDiv.classList.add('alert', 'alert-success', 'pay-button-alert')
     $payButtonDiv.setAttribute('role', 'alert')
 
     var $strongAlert = document.createElement('strong')
     $strongAlert.textContent = 'Thank you. Your order has been placed.'
     $payButtonDiv.appendChild($strongAlert)
+
+    function goBackToCatalog() {
+      app.view = 'catalog'
+      app.cart.items = []
+      renderAppState('catalog')
+    }
+    setTimeout(goBackToCatalog, 1500)
   }
   return $checkOutPageContainer
 }
