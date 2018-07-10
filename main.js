@@ -138,7 +138,7 @@ function createGridAndHeading(allItems) {
 
   for (var i = 0; i < allItems.length; i++) {
     var $cardDiv = document.createElement('div')
-    $cardDiv.classList.add('col-md-3')
+    $cardDiv.classList.add('col-md-3', 'grid-card-divs')
     $cardDiv.style.cursor = 'pointer'
     $row1.appendChild($cardDiv)
     var $newCard = createCard(allItems[i])
@@ -244,7 +244,7 @@ function createFullDetailsCard(item) {
 
   var $addToCartButton = document.createElement('button')
   $buttonContainer.appendChild($addToCartButton)
-  $addToCartButton.classList.add('btn', 'btn-primary')
+  $addToCartButton.classList.add('btn', 'btn-primary', 'buttons')
   $addToCartButton.textContent = 'Add to Cart'
 
   $addToCartButton.addEventListener('click', renderCart)
@@ -255,7 +255,7 @@ function createFullDetailsCard(item) {
 
   var $keepShoppingButton = document.createElement('button')
   $buttonContainer.appendChild($keepShoppingButton)
-  $keepShoppingButton.classList.add('btn', 'btn-primary')
+  $keepShoppingButton.classList.add('btn', 'btn-primary', 'buttons')
   $keepShoppingButton.textContent = 'Keep Shopping'
 
   $keepShoppingButton.addEventListener('click', returnToCatalog)
@@ -390,7 +390,7 @@ function renderCartPage(cartObjects) {
 
   var $continueShoppingButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($continueShoppingButton)
-  $continueShoppingButton.classList.add('btn', 'btn-primary')
+  $continueShoppingButton.classList.add('btn', 'btn-primary', 'buttons')
   $continueShoppingButton.textContent = 'Continue Shopping'
 
   $continueShoppingButton.addEventListener('click', returnToCatalog)
@@ -402,7 +402,7 @@ function renderCartPage(cartObjects) {
 
   var $checkOutButton = document.createElement('button')
   $cartContinueShoppingContainer.appendChild($checkOutButton)
-  $checkOutButton.classList.add('btn', 'btn-primary')
+  $checkOutButton.classList.add('btn', 'btn-primary', 'buttons')
   $checkOutButton.textContent = 'Check Out'
 
   $checkOutButton.addEventListener('click', goToCheckOut)
@@ -433,7 +433,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formNameDiv)
 
   var $formNameLabel = document.createElement('label')
-  $formNameLabel.classList.add('col-2', 'col-form-label')
+  $formNameLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formNameLabel.setAttribute('for', 'example-text-input')
   $formNameLabel.textContent = 'Name'
   $formNameDiv.appendChild($formNameLabel)
@@ -454,7 +454,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formAddressDiv)
 
   var $formAddressLabel = document.createElement('label')
-  $formAddressLabel.classList.add('col-2', 'col-form-label')
+  $formAddressLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formAddressLabel.setAttribute('for', 'example-text-input')
   $formAddressLabel.textContent = 'Address'
   $formAddressDiv.appendChild($formAddressLabel)
@@ -475,7 +475,7 @@ function createCheckOutFormPage(cartObjects) {
   $checkOutFormContainer.appendChild($formCreditCardDiv)
 
   var $formCreditCardLabel = document.createElement('label')
-  $formCreditCardLabel.classList.add('col-2', 'col-form-label')
+  $formCreditCardLabel.classList.add('col-2', 'col-form-label', 'form-labels')
   $formCreditCardLabel.setAttribute('for', 'example-number-input')
   $formCreditCardLabel.textContent = 'Credit Card Number'
   $formCreditCardDiv.appendChild($formCreditCardLabel)
@@ -515,7 +515,7 @@ function createCheckOutFormPage(cartObjects) {
 
   var $payButton = document.createElement('button')
   $payButtonDiv.appendChild($payButton)
-  $payButton.classList.add('btn', 'btn-primary', 'pay-button')
+  $payButton.classList.add('btn', 'btn-primary', 'pay-button', 'buttons')
   $payButton.setAttribute('type', 'submit')
   $payButton.textContent = 'Pay'
 
@@ -524,7 +524,7 @@ function createCheckOutFormPage(cartObjects) {
   function showAlert() {
     var $payButtonDiv = document.createElement('div')
     $checkOutPageContainer.appendChild($payButtonDiv)
-    $payButtonDiv.classList.add('alert', 'alert-success')
+    $payButtonDiv.classList.add('alert', 'alert-success', 'pay-button-alert')
     $payButtonDiv.setAttribute('role', 'alert')
 
     var $strongAlert = document.createElement('strong')
