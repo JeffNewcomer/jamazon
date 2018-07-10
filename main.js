@@ -156,31 +156,27 @@ var $cartCounterContainer = document.querySelector('.cart-count-container')
 function renderAppState() {
   if (app.view === 'catalog') {
     $catalog.innerHTML = ''
-    $cart.innerHTML = ''
     var i = createGridAndHeading(app.catalog.items)
     $catalog.appendChild(i)
-    addHiddenClass('details')
+    showView('catalog')
   }
   if (app.view === 'details') {
     $details.innerHTML = ''
     var k = createFullDetailsCard(app.details.item)
     $details.appendChild(k)
-    addHiddenClass('catalog')
+    showView('details')
   }
   if (app.view === 'cart') {
     $cart.innerHTML = ''
-    $catalog.innerHTML = ''
-    $details.innerHTML = ''
-    $checkout.innerHTML = ''
     var j = renderCartPage(app.cart.items)
     $cart.appendChild(j)
+    showView('cart')
   }
   if (app.view === 'checkout') {
-    $cart.innerHTML = ''
     var n = createCheckOutFormPage(app.cart.items)
     $checkout.appendChild(n)
+    showView('checkout')
   }
-
   $cartCounterContainer.innerHTML = ''
   var $cartCount = cartCount(app.cart)
   $cartCounterContainer.appendChild($cartCount)
@@ -286,30 +282,30 @@ function displayLargeCard() {
   renderAppState()
 }
 
-function addHiddenClass(viewName) {
+function showView(viewName) {
   if (viewName === 'details') {
-    $catalog.classList.remove('hidden')
-    $details.classList.add('hidden')
-    $cart.classList.remove('hidden')
-    $checkout.classList.remove('hidden')
-  }
-  if (viewName === 'catalog') {
     $catalog.classList.add('hidden')
     $details.classList.remove('hidden')
-    $cart.classList.remove('hidden')
-    $checkout.classList.remove('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.add('hidden')
+  }
+  if (viewName === 'catalog') {
+    $catalog.classList.remove('hidden')
+    $details.classList.add('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.add('hidden')
   }
   if (viewName === 'cart') {
-    $catalog.classList.remove('hidden')
-    $details.classList.remove('hidden')
-    $cart.classList.add('hidden')
-    $checkout.classList.remove('hidden')
-  }
-  if (viewName === 'checkout') {
-    $catalog.classList.remove('hidden')
-    $details.classList.remove('hidden')
+    $catalog.classList.add('hidden')
+    $details.classList.add('hidden')
     $cart.classList.remove('hidden')
     $checkout.classList.add('hidden')
+  }
+  if (viewName === 'checkout') {
+    $catalog.classList.add('hidden')
+    $details.classList.add('hidden')
+    $cart.classList.add('hidden')
+    $checkout.classList.remove('hidden')
   }
 }
 
