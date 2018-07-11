@@ -95,6 +95,8 @@ var app = {
   }
 }
 
+var dataViewDivs = document.querySelectorAll('[data-view]')
+
 function cartCount(cart) {
   var $cartCount = document.createElement('div')
   $cartCount.classList.add('cart-count')
@@ -299,29 +301,13 @@ function displayLargeCard() {
 }
 
 function showView(viewName) {
-  if (viewName === 'details') {
-    $catalog.classList.add('hidden')
-    $details.classList.remove('hidden')
-    $cart.classList.add('hidden')
-    $checkout.classList.add('hidden')
-  }
-  if (viewName === 'catalog') {
-    $catalog.classList.remove('hidden')
-    $details.classList.add('hidden')
-    $cart.classList.add('hidden')
-    $checkout.classList.add('hidden')
-  }
-  if (viewName === 'cart') {
-    $catalog.classList.add('hidden')
-    $details.classList.add('hidden')
-    $cart.classList.remove('hidden')
-    $checkout.classList.add('hidden')
-  }
-  if (viewName === 'checkout') {
-    $catalog.classList.add('hidden')
-    $details.classList.add('hidden')
-    $cart.classList.add('hidden')
-    $checkout.classList.remove('hidden')
+  for (var i = 0; i < dataViewDivs.length; i++) {
+    if (dataViewDivs[i].getAttribute('data-view') === viewName) {
+      dataViewDivs[i].classList.remove('hidden')
+    }
+    else {
+      dataViewDivs[i].classList.add('hidden')
+    }
   }
 }
 
