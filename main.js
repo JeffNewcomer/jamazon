@@ -97,6 +97,10 @@ var app = {
 
 var dataViewDivs = document.querySelectorAll('[data-view]')
 
+function formatPrice(number) {
+  return '$' + number.toFixed(2)
+}
+
 function cartCount(cart) {
   var $cartCount = document.createElement('div')
   $cartCount.classList.add('cart-count')
@@ -136,7 +140,7 @@ function createCard(item) {
   var $price = document.createElement('h6')
   $cardBody.appendChild($price)
   $price.classList.add('card-title')
-  $price.textContent = '$' + item.price.toFixed(2)
+  $price.textContent = formatPrice(item.price)
 
   return $card
 }
@@ -230,7 +234,7 @@ function createFullDetailsCard(item) {
   var $largeCardPrice = document.createElement('h5')
   $largeCardTextContainer.appendChild($largeCardPrice)
   $largeCardPrice.classList.add('card-title')
-  $largeCardPrice.textContent = '$' + item.price.toFixed(2)
+  $largeCardPrice.textContent = formatPrice(item.price)
 
   var $largeCardDescription = document.createElement('h6')
   $largeCardTextContainer.appendChild($largeCardDescription)
@@ -331,7 +335,7 @@ function createCartItem(item) {
 
   var $cartItemPrice = document.createElement('h5')
   $cartTextImageContainer.appendChild($cartItemPrice)
-  $cartItemPrice.textContent = '$' + item.price.toFixed(2)
+  $cartItemPrice.textContent = formatPrice(item.price)
   $cartItemPrice.classList.add('cart-item-price')
 
   return $cartItemsContainer
@@ -356,10 +360,9 @@ function renderCartPage(cartObjects) {
   for (var i = 0; i < cartObjects.length; i++) {
     sum += cartObjects[i].price
   }
-  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum2Decimals
+  $priceTotal.textContent = 'Total: ' + formatPrice(sum)
   $cartTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
@@ -482,10 +485,9 @@ function createCheckOutFormPage(cartObjects) {
     sum += cartObjects[i].price
 
   }
-  var sum2Decimals = sum.toFixed(2)
 
   var $priceTotal = document.createElement('h4')
-  $priceTotal.textContent = 'Total: $' + sum2Decimals
+  $priceTotal.textContent = 'Total: ' + formatPrice(sum)
   $checkOutTotalContainer.appendChild($priceTotal)
 
   var $itemTotal = document.createElement('h4')
